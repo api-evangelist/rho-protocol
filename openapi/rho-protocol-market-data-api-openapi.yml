@@ -1,0 +1,739 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: Rho Exchange Market Data API
+  contact: {}
+  version: development
+host: ''
+basePath: /api/v1
+schemes: []
+tags:
+- name: Market Data
+paths:
+  /exchange/info:
+    get:
+      description: Returns list of all symbols, currencies, and relevant metadata.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve exchange info
+      parameters:
+      - type: boolean
+        description: Include matured symbols
+        name: includeMaturedSymbols
+        in: query
+      - type: boolean
+        description: Include markets list
+        name: includeMarkets
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.ExchangeInfoResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /markets/{marketId}/floating-rate-candles:
+    get:
+      description: Returns floating rate candles for a given market
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve floating rate candles
+      parameters:
+      - type: string
+        description: Market ID
+        name: marketId
+        in: path
+        required: true
+      - enum:
+        - 1m
+        - 5m
+        - 15m
+        - 30m
+        - 1h
+        - 4h
+        - 1d
+        type: string
+        description: Candle interval
+        name: interval
+        in: query
+        required: true
+      - type: string
+        description: Start time (ISO8601 / RFC3339)
+        name: startTime
+        in: query
+      - type: string
+        description: End time (ISO8601 / RFC3339)
+        name: endTime
+        in: query
+      - type: integer
+        description: Number of candles to retrieve (default=1000)
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.FloatingRateCandlesResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /symbols/{symbol}/candles:
+    get:
+      description: Returns OHLCV (candles) for a symbol over a timeframe
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve candle data for a symbol
+      parameters:
+      - type: string
+        description: Symbol
+        name: symbol
+        in: path
+        required: true
+      - enum:
+        - 1m
+        - 5m
+        - 15m
+        - 30m
+        - 1h
+        - 4h
+        - 1d
+        type: string
+        description: Candle interval
+        name: interval
+        in: query
+        required: true
+      - type: string
+        description: Start time (ISO8601 / RFC3339)
+        name: startTime
+        in: query
+      - type: string
+        description: End time (ISO8601 / RFC3339)
+        name: endTime
+        in: query
+      - type: integer
+        description: Number of candles to retrieve (default=1000)
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.SymbolCandlesResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /symbols/{symbol}/order-book:
+    get:
+      description: Returns current order book bids and asks, up to a given depth
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve order book for a symbol
+      parameters:
+      - type: string
+        description: Symbol
+        name: symbol
+        in: path
+        required: true
+      - type: integer
+        description: Depth of order book
+        name: depth
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.OrderBookResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /symbols/{symbol}/trades:
+    get:
+      description: Returns last N trades for a symbol
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve recent trades for a symbol
+      parameters:
+      - type: string
+        description: Symbol
+        name: symbol
+        in: path
+        required: true
+      - type: integer
+        description: Number of trades to retrieve (default 100, max 1000)
+        name: limit
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.SymbolTradesResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /tickers:
+    get:
+      description: Returns tickers for all symbols or a list of requested symbols.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve multiple tickers
+      parameters:
+      - type: array
+        items:
+          type: string
+        collectionFormat: csv
+        description: List of symbol strings
+        name: symbols
+        in: query
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.TickersResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /tickers/{symbol}:
+    get:
+      description: Returns ticker data (high, low, last, open interest, etc.) for a single symbol
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Market Data
+      summary: Retrieve ticker for a specific symbol
+      parameters:
+      - type: string
+        description: Symbol to fetch ticker for
+        name: symbol
+        in: path
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.TickerResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+definitions:
+  dto.FloatingRateCandle:
+    type: object
+    properties:
+      closePrice:
+        type: string
+      closeTime:
+        type: string
+      highPrice:
+        type: string
+      interval:
+        type: string
+      lowPrice:
+        type: string
+      marketId:
+        type: string
+      openPrice:
+        type: string
+      openTime:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+  dto.SymbolCandlesResponse:
+    type: object
+    properties:
+      candles:
+        type: array
+        items:
+          $ref: '#/definitions/dto.Candle'
+  dto.Candle:
+    type: object
+    properties:
+      accumulatedTradesCountAtOpen:
+        type: string
+        example: '0'
+      accumulatedVolumeAtClose:
+        type: string
+      accumulatedVolumeAtOpen:
+        type: string
+      closePrice:
+        type: string
+      closeTime:
+        type: string
+      highPrice:
+        type: string
+      interval:
+        type: string
+      lowPrice:
+        type: string
+      openInterestAtClose:
+        type: string
+      openInterestAtOpen:
+        type: string
+      openPrice:
+        type: string
+      openTime:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+      symbol:
+        type: string
+      tradesCount:
+        type: string
+        example: '0'
+      volume:
+        type: string
+  dto.CurrencyFeeInfo:
+    type: object
+    properties:
+      currencyId:
+        type: string
+      fee:
+        $ref: '#/definitions/dto.MutableDecimalInfo'
+  dto.TickerResponse:
+    type: object
+    properties:
+      ticker:
+        $ref: '#/definitions/dto.Ticker'
+  dto.SymbolInfo:
+    type: object
+    properties:
+      baseCurrency:
+        type: string
+      floatIndex:
+        type: string
+      floatIndexTimestamp:
+        type: string
+      floatingRate:
+        type: string
+      floatingRateTimestamp:
+        type: string
+      initialMarginThresholdDelta:
+        type: string
+      isExpired:
+        type: boolean
+      isFinalized:
+        type: boolean
+      isLockedUp:
+        type: boolean
+      issueDate:
+        type: string
+      maintenanceMarginThresholdDelta:
+        type: string
+      makerFeeFactor:
+        type: string
+      marginAccount:
+        type: string
+      marginMarketHedgeFactor:
+        type: string
+      marginRequirementMinTimeFactor:
+        type: string
+      market:
+        type: string
+      maturityDate:
+        type: string
+      maturityLockUpWindow:
+        type: string
+      maxPriceImpactPerTrade:
+        type: string
+      maxTradeNotional:
+        type: string
+      minMakerFee:
+        type: string
+      minTakerFee:
+        type: string
+      minTradeNotional:
+        type: string
+      novationLiquidationFeesFactor:
+        type: string
+      openInterestLimit:
+        type: string
+      orderPriceCollar:
+        type: string
+      pausedLiquidations:
+        type: boolean
+      pausedOrders:
+        type: boolean
+      priceTickSize:
+        type: string
+      productType:
+        type: string
+      rateMathType:
+        type: string
+      settlementCurrency:
+        type: string
+      symbol:
+        type: string
+      takerFeeFactor:
+        type: string
+      underlyingAsset:
+        type: string
+      unwindingLiquidationFeesFactor:
+        type: string
+  dto.MarginAccountInfo:
+    type: object
+    properties:
+      baseCurrency:
+        type: string
+      marginAccount:
+        type: string
+      supportedCurrencies:
+        type: array
+        items:
+          type: string
+  dto.OrderBookEntry:
+    type: object
+    properties:
+      price:
+        type: string
+      quantity:
+        type: string
+  dto.TickersResponse:
+    type: object
+    properties:
+      tickers:
+        type: array
+        items:
+          $ref: '#/definitions/dto.Ticker'
+  dto.CurrencyConversionEntry:
+    type: object
+    properties:
+      sourceCurrency:
+        type: string
+      value:
+        $ref: '#/definitions/dto.MutableDecimalInfo'
+  dto.OrderBookResponse:
+    type: object
+    properties:
+      asks:
+        type: array
+        items:
+          $ref: '#/definitions/dto.OrderBookEntry'
+      bids:
+        type: array
+        items:
+          $ref: '#/definitions/dto.OrderBookEntry'
+      seqId:
+        type: string
+        example: '0'
+      symbol:
+        type: string
+  dto.DepositaryInfo:
+    type: object
+    properties:
+      blockchainId:
+        type: string
+      depositaryId:
+        type: string
+      depositaryType:
+        type: string
+        enum:
+        - blockchain
+  dto.Ticker:
+    type: object
+    properties:
+      askPrice:
+        type: string
+      askSize:
+        type: string
+      bidPrice:
+        type: string
+      bidSize:
+        type: string
+      highPrice:
+        type: string
+      lastAccumulatedTradesCount:
+        type: string
+        example: '0'
+      lastAccumulatedVolume:
+        type: string
+      lastOpenInterest:
+        type: string
+      lastPrice:
+        type: string
+      lowPrice:
+        type: string
+      markPrice:
+        type: string
+      openInterestChange:
+        type: string
+      priceChange:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+      symbol:
+        type: string
+      tradesCountChange:
+        type: string
+        example: '0'
+      volumeChange:
+        type: string
+  dto.SymbolTrade:
+    type: object
+    properties:
+      cmdSeqId:
+        type: string
+        example: '0'
+      floatIndex:
+        type: string
+      openInterest:
+        type: string
+      prevAccumulatedVolume:
+        type: string
+      prevOpenInterest:
+        type: string
+      price:
+        type: string
+      side:
+        type: string
+        enum:
+        - sell
+        - buy
+      symbol:
+        type: string
+      symbolTradeSeqId:
+        type: string
+        example: '0'
+      time:
+        type: string
+      tradeType:
+        type: string
+        enum:
+        - regular
+        - liquidation
+        - self-trade
+      volume:
+        type: string
+  dto.CurrencyInfo:
+    type: object
+    properties:
+      blockchainAddress:
+        type: string
+      blockchainId:
+        type: string
+      id:
+        type: string
+      scale:
+        type: string
+        example: '0'
+  dto.ExternalError:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      params:
+        description: Params carries stable flat string metadata for selected V2 AppErrors only.
+        type: object
+        additionalProperties:
+          type: string
+      requestId:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+  dto.MarketInfo:
+    type: object
+    properties:
+      baseCurrency:
+        type: string
+      floatingRate:
+        type: string
+      floatingRateTimestamp:
+        type: string
+      id:
+        type: string
+      initialMarginThresholdDelta:
+        type: string
+      maintenanceMarginThresholdDelta:
+        type: string
+      makerFeeFactor:
+        type: string
+      marginAccount:
+        type: string
+      marginMarketHedgeFactor:
+        type: string
+      marginRequirementMinTimeFactor:
+        type: string
+      maturityLockUpWindow:
+        type: string
+      maxPriceImpactPerTrade:
+        type: string
+      maxTradeNotional:
+        type: string
+      minFeeTimeFloor:
+        type: string
+      minMakerFee:
+        type: string
+      minTakerFee:
+        type: string
+      minTradeNotional:
+        type: string
+      novationLiquidationFeesFactor:
+        type: string
+      orderPriceCollar:
+        type: string
+      priceTickSize:
+        type: string
+      productType:
+        type: string
+      rateMathType:
+        type: string
+      takerFeeFactor:
+        type: string
+      underlyingAsset:
+        type: string
+      unwindingLiquidationFeesFactor:
+        type: string
+  dto.FeatureInfo:
+    type: object
+    properties:
+      featureId:
+        type: integer
+      seqId:
+        type: string
+        example: '0'
+  dto.FloatingRateCandlesResponse:
+    type: object
+    properties:
+      candles:
+        type: array
+        items:
+          $ref: '#/definitions/dto.FloatingRateCandle'
+  dto.SymbolTradesResponse:
+    type: object
+    properties:
+      trades:
+        type: array
+        items:
+          $ref: '#/definitions/dto.SymbolTrade'
+  dto.CurrencyConversionInfo:
+    type: object
+    properties:
+      sourceCurrencyToValues:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyConversionEntry'
+      targetCurrency:
+        type: string
+  dto.ExchangeInfoResponse:
+    type: object
+    properties:
+      activatedFeatures:
+        type: array
+        items:
+          $ref: '#/definitions/dto.FeatureInfo'
+      currencies:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyInfo'
+      currencyHaircuts:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyConversionInfo'
+      currencyRates:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyConversionInfo'
+      currencyRiskFactors:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyConversionInfo'
+      depositaries:
+        type: array
+        items:
+          $ref: '#/definitions/dto.DepositaryInfo'
+      marginAccounts:
+        type: array
+        items:
+          $ref: '#/definitions/dto.MarginAccountInfo'
+      markets:
+        type: array
+        items:
+          $ref: '#/definitions/dto.MarketInfo'
+      seqId:
+        type: string
+        example: '0'
+      symbols:
+        type: array
+        items:
+          $ref: '#/definitions/dto.SymbolInfo'
+      withdrawalFees:
+        type: array
+        items:
+          $ref: '#/definitions/dto.CurrencyFeeInfo'
+  dto.MutableDecimalInfo:
+    type: object
+    properties:
+      updatedAt:
+        type: string
+      value:
+        type: string
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header

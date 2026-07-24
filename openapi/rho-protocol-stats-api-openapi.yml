@@ -1,0 +1,69 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: Rho Exchange Market Data Stats API
+  contact: {}
+  version: development
+host: ''
+basePath: /api/v1
+schemes: []
+tags:
+- name: Stats
+paths:
+  /stats/volume:
+    get:
+      description: Returns volume stats for a given timeframe
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Stats
+      summary: Retrieve volume stats
+      parameters:
+      - type: string
+        description: Start time (ISO8601 / RFC3339)
+        name: startTime
+        in: query
+        required: true
+      - type: string
+        description: End time (ISO8601 / RFC3339)
+        name: endTime
+        in: query
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: string
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+definitions:
+  dto.ExternalError:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      params:
+        description: Params carries stable flat string metadata for selected V2 AppErrors only.
+        type: object
+        additionalProperties:
+          type: string
+      requestId:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header

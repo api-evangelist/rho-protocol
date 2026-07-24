@@ -1,0 +1,307 @@
+swagger: '2.0'
+info:
+  description: ''
+  title: Rho Exchange Market Data Trading API
+  contact: {}
+  version: development
+host: ''
+basePath: /api/v1
+schemes: []
+tags:
+- name: Trading
+paths:
+  /orders:
+    post:
+      security:
+      - Bearer: []
+      - ApiKey: []
+      description: 'Submits a new order for the user, returning the processed result. Rate limit weight: 1'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Trading
+      summary: Create an order
+      parameters:
+      - description: RestCreateOrderRequest payload
+        name: createOrderRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RestCreateOrderRequest'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.OrdersProcessingResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /orders/cancel:
+    post:
+      security:
+      - Bearer: []
+      - ApiKey: []
+      description: 'Cancels an existing order by orderId or clientOrderId. Rate limit weight: 1'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Trading
+      summary: Cancel an order
+      parameters:
+      - description: RestCancelOrderRequest payload
+        name: cancelOrderRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RestCancelOrderRequest'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.OrdersProcessingResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+  /orders/cancel-all:
+    post:
+      security:
+      - Bearer: []
+      - ApiKey: []
+      description: 'Cancels all open orders for the current user. Optional filters by symbol, margin account, or side. Rate limit weight: 5'
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      tags:
+      - Trading
+      summary: Cancel all user orders
+      parameters:
+      - description: RestCancelAllOrdersRequest payload
+        name: cancelAllOrdersRequest
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RestCancelAllOrdersRequest'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/dto.OrdersProcessingResponse'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+        '500':
+          description: Internal Error
+          schema:
+            $ref: '#/definitions/dto.ExternalError'
+definitions:
+  dto.OrdersProcessingResponse:
+    type: object
+    properties:
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/dto.Order'
+      seqId:
+        type: string
+        example: '0'
+      trades:
+        type: array
+        items:
+          $ref: '#/definitions/dto.UserTrade'
+  dto.RestCancelAllOrdersRequest:
+    type: object
+    properties:
+      marginAccount:
+        type: string
+      side:
+        type: string
+        enum:
+        - buy
+        - sell
+      symbol:
+        type: string
+  dto.RestCreateOrderRequest:
+    type: object
+    required:
+    - orderType
+    - symbol
+    properties:
+      clientOrderId:
+        type: string
+        maxLength: 36
+      flags:
+        type: array
+        items:
+          type: string
+          enum:
+          - close-position
+      orderType:
+        type: string
+        enum:
+        - limit
+        - market
+      price:
+        type: string
+      quantity:
+        type: string
+      side:
+        type: string
+        enum:
+        - buy
+        - sell
+      symbol:
+        type: string
+      timeInForce:
+        type: string
+        enum:
+        - GTC
+        - IOC
+  dto.UserTrade:
+    type: object
+    properties:
+      cmdSeqId:
+        type: string
+        example: '0'
+      floatIndex:
+        type: string
+      liquidationFees:
+        type: string
+      liquidityRole:
+        type: string
+        enum:
+        - maker
+        - taker
+      marginAccount:
+        type: string
+      orderId:
+        type: string
+        example: '0'
+      price:
+        type: string
+      side:
+        type: string
+        enum:
+        - sell
+        - buy
+      symbol:
+        type: string
+      time:
+        type: string
+      tradeType:
+        type: string
+        enum:
+        - regular
+        - liquidation
+        - self-trade
+      tradingFees:
+        type: string
+      userId:
+        type: string
+      userTradeSeqId:
+        type: string
+        example: '0'
+      volume:
+        type: string
+  dto.RestCancelOrderRequest:
+    type: object
+    required:
+    - symbol
+    properties:
+      clientOrderId:
+        type: string
+        maxLength: 36
+      orderId:
+        type: string
+        minimum: 1
+        example: '0'
+      symbol:
+        type: string
+  dto.Order:
+    type: object
+    properties:
+      avgExecutedPrice:
+        type: string
+      cancellationReason:
+        type: string
+        enum:
+        - user-request
+        - auto-risk-reducing
+      clientOrderId:
+        type: string
+      createdAt:
+        type: string
+      executedQuantity:
+        type: string
+      initialQuantity:
+        type: string
+      lastExecutedPrice:
+        type: string
+      lastExecutedQuantity:
+        type: string
+      leavesQuantity:
+        type: string
+      marginAccount:
+        type: string
+      orderId:
+        type: string
+        example: '0'
+      price:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+      side:
+        type: string
+        enum:
+        - sell
+        - buy
+      status:
+        type: string
+        enum:
+        - new
+        - partially-filled
+        - filled
+        - rejected
+        - cancelled
+      symbol:
+        type: string
+      userId:
+        type: string
+  dto.ExternalError:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      params:
+        description: Params carries stable flat string metadata for selected V2 AppErrors only.
+        type: object
+        additionalProperties:
+          type: string
+      requestId:
+        type: string
+      seqId:
+        type: string
+        example: '0'
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
