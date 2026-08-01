@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/rho-protocol-openapi-original.json
+note: >-
+  The harvested Swagger 2.0 declares no operationIds; skill steps are grounded in the real
+  HTTP method + path of each operation (verified present in the spec), never invented.
+skills:
+- file: rho-protocol-market-data.md
+  name: Read Rho X market data
+  api: openapi/rho-protocol-openapi-original.json
+  operations: ["GET /exchange/info", "GET /tickers", "GET /tickers/{symbol}", "GET /symbols/{symbol}/order-book", "GET /symbols/{symbol}/trades", "GET /symbols/{symbol}/candles", "GET /stats/volume"]
+- file: rho-protocol-account-monitoring.md
+  name: Monitor a Rho X account
+  api: openapi/rho-protocol-openapi-original.json
+  operations: ["GET /users/account", "GET /users/balances", "GET /users/positions", "GET /users/orders", "GET /users/trades", "GET /margin-accounts"]
+- file: rho-protocol-trading.md
+  name: Place and manage Rho X orders
+  api: openapi/rho-protocol-openapi-original.json
+  operations: ["POST /orders", "POST /orders/cancel", "POST /orders/cancel-all", "POST /users/withdrawals"]

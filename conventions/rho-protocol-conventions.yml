@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.rho.trading/api-reference/overview.md
+description: >-
+  Cross-cutting request/response semantics for the Rho X (Rho Exchange) REST + WebSocket API,
+  captured from the docs and derived from the OpenAPI (Swagger 2.0).
+base_urls:
+  rest: https://x.rho.trading/api/v1
+  rest_alt: https://api.x.rho.trading/api/v1
+  auth: https://api.x.rho.trading/auth-api/v1
+  websocket: wss://stream.x.rho.trading/ws-api/v1
+authentication:
+  style: bearer-token + api-key (header Authorization)
+  ref: authentication/rho-protocol-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+  ref: lifecycle/rho-protocol-lifecycle.yml
+idempotency:
+  supported: partial
+  mechanism: >-
+    Order creation accepts a client-supplied `clientOrderId` (string, maxLength 36) on
+    POST /orders for client-side order tracking/deduplication. There is no documented
+    Idempotency-Key request header covering all write operations.
+rate_limiting:
+  signaled: true
+  rest_headers:
+  - X-RateLimit-Limit      # burst capacity
+  - X-RateLimit-Remaining  # budget remaining after this request
+  error_status: 429
+  websocket: 200 messages / 20 per second; message weights authenticate=5, subscribe/unsubscribe=1 per channel
+  ref: rate-limits/rho-protocol-rate-limits.yml
+error_envelope:
+  shape: custom
+  schema: dto.ExternalError
+  fields:
+  - code      # string, stable error code
+  - message   # human-readable message
+  - params    # stable flat string metadata for selected errors
+  problem_json: false
+  ref: errors/rho-protocol-problem-types.yml
+realtime:
+  transport: WebSocket (WSS)
+  public_channels: [ticker, order-book, symbol-trades, symbol-candles, market-floating-rate-candles]
+  private_channels: [user-orders, user-positions, user-balances, user-trades, user-transfers, user-account, user-account-candles, user-margin-account, user-margin-account-candles]
+  ref: asyncapi/rho-protocol-ws-asyncapi.yml
+numeric_values:
+  note: Prices and quantities are transported as strings to preserve decimal precision (e.g. price, quantity on RestCreateOrderRequest).

@@ -1,0 +1,72 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rho-protocol-openapi-original.json
+description: >-
+  Entity graph derived from the Rho Exchange OpenAPI (Swagger 2.0) definitions and the
+  id-reference fields across market-data, account, and trading resources.
+entities:
+- name: Symbol
+  schema: dto.SymbolInfo
+  desc: A tradable instrument identifier (e.g. rate future / perpetual symbol).
+- name: Market
+  schema: dto.MarketInfo
+  desc: A market grouping instruments; floating-rate candles are keyed by marketId.
+- name: Ticker
+  schema: dto.Ticker
+  desc: Market summary (mid-rate, best bid/ask, 24h volume, open interest) per symbol.
+- name: OrderBook
+  schema: dto.OrderBookResponse
+  desc: Bid/ask ladder (dto.OrderBookEntry) per symbol.
+- name: Order
+  schema: dto.Order
+  desc: A user order; created from dto.RestCreateOrderRequest with clientOrderId, side, orderType, timeInForce.
+- name: Position
+  schema: dto.Position
+  desc: A user position with margin details (dto.PositionMarginDetails).
+- name: MarginAccount
+  schema: dto.MarginAccount
+  desc: A margin account holding balances, positions, and equity.
+- name: Balance
+  schema: dto.UserBalances
+  desc: Currency balances (dto.CurrencyBalance) and withdrawable balances.
+- name: Trade
+  schema: dto.UserTrade
+  desc: An executed fill for the user.
+- name: Transfer
+  schema: dto.Transfer
+  desc: Deposits/withdrawals and internal transfers.
+relationships:
+- from: Order
+  to: Symbol
+  type: belongs_to
+  via: symbol
+- from: Position
+  to: Symbol
+  type: belongs_to
+  via: symbol
+- from: MarginAccount
+  to: Position
+  type: has_many
+  via: marginAccount
+- from: MarginAccount
+  to: Balance
+  type: has_many
+- from: Ticker
+  to: Symbol
+  type: belongs_to
+  via: symbol
+- from: OrderBook
+  to: Symbol
+  type: belongs_to
+  via: symbol
+- from: Trade
+  to: Order
+  type: belongs_to
+- from: Trade
+  to: Symbol
+  type: belongs_to
+  via: symbol
+- from: FloatingRateCandle
+  to: Market
+  type: belongs_to
+  via: marketId

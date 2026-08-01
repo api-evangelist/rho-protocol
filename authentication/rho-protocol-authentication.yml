@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/rho-protocol-openapi-original.json
+docs: https://docs.rho.trading/api-reference/authentication.md
+summary:
+  types:
+  - apiKey
+  - http-bearer
+  api_key_in:
+  - header
+  oauth2_flows: []
+  notes: >-
+    Rho X (rho.trading) uses wallet-signature session auth plus long-lived API keys.
+    There is no OAuth2 authorization server; credentials are minted via the Auth API
+    after signing an Ethereum wallet nonce, or issued as scoped API keys.
+credentials:
+- name: Access token (Bearer)
+  transport: 'Authorization: Bearer <accessToken>'
+  issued_by: POST /auth-api/v1/login (after signing a nonce from POST /auth-api/v1/nonce with an Ethereum wallet)
+  ttl: Sliding 7 days, resets on each successful call
+  scope: FullAccess
+  use: User-scoped session access
+- name: API key
+  transport: 'Authorization: <apiKey>'
+  issued_by: Rho X interface or POST /apikeys (optional expiresAt)
+  ttl: Long-lived until rotated or optional expiresAt
+  scopes:
+  - ReadOnly
+  - FullAccess
+  use: Backend services, trading bots, automation
+- name: WS session token
+  transport: WebSocket authenticate message
+  issued_by: POST /auth-api/v1/ws-session (requires Bearer or ApiKey auth; rate-limit weight 3)
+  ttl: 1 hour by default, refreshable
+  use: Authenticated WebSocket private-channel subscriptions on wss://stream.x.rho.trading/ws-api/v1
+schemes:
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/rho-protocol-openapi-original.json
+auth_api:
+  base_url: https://api.x.rho.trading/auth-api/v1
+  endpoints:
+  - {path: /nonce, method: POST, desc: Request a nonce to sign with the wallet}
+  - {path: /login, method: POST, desc: Exchange signed nonce for an access token (FullAccess)}
+  - {path: /apikeys, method: POST, desc: 'Create an API key (label, scopes, optional expiresAt)'}
+  - {path: /apikeys, method: GET, desc: List active API keys}
+  - {path: /apikeys/revoke, method: POST, desc: Revoke an API key}
+  - {path: /ws-session, method: POST, desc: Create a WS session token}

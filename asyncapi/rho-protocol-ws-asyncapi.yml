@@ -1,0 +1,88 @@
+generated: '2026-07-21'
+method: generated
+source: https://docs.rho.trading/api-reference/detailed-reference/websocket-api.md
+spec_type: AsyncAPI
+note: >-
+  Generated from Rho X's documented WebSocket channel catalog (public + private channels).
+  Rho does not publish an AsyncAPI document; this captures the real, documented streaming
+  surface. Channel payload schemas mirror the REST dto.* definitions.
+asyncapi: 2.6.0
+info:
+  title: Rho X WebSocket API
+  version: v1
+  description: >-
+    Real-time streaming of market data, order updates, and account state for Rho X
+    (Rho Exchange). Private channels require a WS session token (POST /auth-api/v1/ws-session).
+servers:
+  production:
+    url: stream.x.rho.trading/ws-api/v1
+    protocol: wss
+    description: Production WebSocket endpoint (wss://stream.x.rho.trading/ws-api/v1)
+    security:
+    - wsSessionToken: []
+components:
+  securitySchemes:
+    wsSessionToken:
+      type: httpApiKey
+      in: user
+      name: Authorization
+      description: WS session token obtained from POST /auth-api/v1/ws-session (1h TTL, refreshable).
+channels:
+  ticker.{symbol}:
+    description: Market summary — mid-rate, best bid/ask, 24h volume, open interest.
+    parameters:
+      symbol: {description: Instrument symbol}
+    subscribe:
+      message: {name: Ticker, summary: Ticker update for a symbol}
+  order-book.{symbol}:
+    description: Order book bid/ask ladder for a symbol.
+    subscribe:
+      message: {name: OrderBook, summary: Order book snapshot/delta}
+  symbol-trades.{symbol}:
+    description: Public trade prints for a symbol.
+    subscribe:
+      message: {name: SymbolTrade, summary: Executed public trade}
+  symbol-candles.{symbol}:
+    description: OHLC candles for a symbol.
+    subscribe:
+      message: {name: Candle, summary: Candle update}
+  market-floating-rate-candles.{marketId}:
+    description: Floating-rate candles for a market.
+    subscribe:
+      message: {name: FloatingRateCandle, summary: Floating rate candle update}
+  user-orders:
+    description: Authenticated user's order updates.
+    subscribe:
+      message: {name: UserOrders}
+  user-positions:
+    description: Authenticated user's position updates.
+    subscribe:
+      message: {name: UserPositions}
+  user-balances:
+    description: Authenticated user's balance updates.
+    subscribe:
+      message: {name: UserBalances}
+  user-trades:
+    description: Authenticated user's fills.
+    subscribe:
+      message: {name: UserTrade}
+  user-transfers:
+    description: Authenticated user's transfers.
+    subscribe:
+      message: {name: UserTransfers}
+  user-account:
+    description: Authenticated user's account state.
+    subscribe:
+      message: {name: UserAccount}
+  user-account-candles:
+    description: Authenticated user's account equity candles.
+    subscribe:
+      message: {name: UserAccountCandle}
+  user-margin-account:
+    description: Authenticated user's margin-account state.
+    subscribe:
+      message: {name: MarginAccount}
+  user-margin-account-candles:
+    description: Authenticated user's margin-account candles.
+    subscribe:
+      message: {name: UserMarginAccountCandle}

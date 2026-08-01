@@ -1,0 +1,20 @@
+{
+  "provider": "rho-protocol",
+  "sources": [
+    "rho-protocol-market-data-api-openapi.yml",
+    "rho-protocol-stats-api-openapi.yml",
+    "rho-protocol-trading-api-openapi.yml",
+    "rho-protocol-user-data-api-openapi.yml"
+  ],
+  "outputs": [
+    "rho-protocol-market-data-api-openapi.yml",
+    "rho-protocol-stats-api-openapi.yml",
+    "rho-protocol-trading-api-openapi.yml",
+    "rho-protocol-user-data-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.rho.trading/api-reference/overview.md
+signaled: true
+rest:
+  error_status: 429
+  headers:
+  - name: X-RateLimit-Limit
+    description: Your burst capacity
+  - name: X-RateLimit-Remaining
+    description: Budget remaining after this request
+websocket:
+  limit_count: 200
+  window: burst
+  rate: 20 per second
+  message_weights:
+    authenticate: 5
+    subscribe: 1 per channel
+    unsubscribe: 1 per channel
+    ws-session-create: 3
+rate_limits:
+- surface: websocket
+  limit_count: 200
+  interval: burst
+  notes: 20 messages per second sustained

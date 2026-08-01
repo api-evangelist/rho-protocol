@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rho-protocol-openapi-original.json
+standards:
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme; auth is wallet-signature bearer token + API keys.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom {code, message, params} envelope (dto.ExternalError), not application/problem+json.
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: 'Authorization: Bearer <accessToken> access tokens (Auth API).'
+- id: rate-limit-headers
+  conforms: true
+  evidence: 429 responses carry X-RateLimit-Limit / X-RateLimit-Remaining.
+- id: rest-json
+  conforms: true
+  evidence: JSON REST API over /api/v1 with 23 operations.
+- id: websocket-streaming
+  conforms: true
+  evidence: Public + private WebSocket channels at wss://stream.x.rho.trading/ws-api/v1.
+- id: json-api
+  conforms: false
+- id: fapi
+  conforms: false

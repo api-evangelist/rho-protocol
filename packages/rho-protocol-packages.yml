@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/org/rholabs
+packages:
+- language: javascript
+  registry: npm
+  name: "@rholabs/rho-sdk"
+  version: 0.4.0-alpha11
+  url: https://www.npmjs.com/package/@rholabs/rho-sdk
+  install: npm install @rholabs/rho-sdk
+  license: MIT
+  description: Rho Protocol SDK
+  official: true
+- language: javascript
+  registry: npm
+  name: "@rholabs/rho-mcp"
+  version: 0.1.4
+  url: https://www.npmjs.com/package/@rholabs/rho-mcp
+  install: npx -y @rholabs/rho-mcp@latest
+  license: MIT
+  repository: https://github.com/RhoLabs/rho-mcp
+  description: >-
+    MCP (Model Context Protocol) server for the Rho Exchange REST API — lets Claude Code,
+    Claude Desktop, Cursor and other MCP hosts read market data, manage positions, and
+    trade interest-rate derivatives on Rho X.
+  official: true

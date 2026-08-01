@@ -1,0 +1,3079 @@
+{
+    "schemes": [],
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "title": "Rho Exchange API",
+        "contact": {},
+        "version": "development"
+    },
+    "host": "",
+    "basePath": "/api/v1",
+    "paths": {
+        "/exchange/info": {
+            "get": {
+                "description": "Returns list of all symbols, currencies, and relevant metadata.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve exchange info",
+                "parameters": [
+                    {
+                        "type": "boolean",
+                        "description": "Include matured symbols",
+                        "name": "includeMaturedSymbols",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "Include markets list",
+                        "name": "includeMarkets",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExchangeInfoResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/margin-accounts": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns all margin accounts, positions, orders, etc. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve all margin accounts for a user",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.MarginAccountsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/margin-accounts/{marginAccount}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns margin account, positions, orders, etc. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve a single margin account",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID",
+                        "name": "marginAccount",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.MarginAccount"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/margin-accounts/{marginAccount}/candles": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns historical margin snapshots. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user margin account candles",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID",
+                        "name": "marginAccount",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "1h",
+                            "1d"
+                        ],
+                        "type": "string",
+                        "description": "Candle interval",
+                        "name": "interval",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Start time (ISO8601 / RFC3339)",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "End time (ISO8601 / RFC3339)",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of candles (default=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserMarginAccountCandlesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/markets/{marketId}/floating-rate-candles": {
+            "get": {
+                "description": "Returns floating rate candles for a given market",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve floating rate candles",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Market ID",
+                        "name": "marketId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "1m",
+                            "5m",
+                            "15m",
+                            "30m",
+                            "1h",
+                            "4h",
+                            "1d"
+                        ],
+                        "type": "string",
+                        "description": "Candle interval",
+                        "name": "interval",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Start time (ISO8601 / RFC3339)",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "End time (ISO8601 / RFC3339)",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of candles to retrieve (default=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.FloatingRateCandlesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Submits a new order for the user, returning the processed result. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trading"
+                ],
+                "summary": "Create an order",
+                "parameters": [
+                    {
+                        "description": "RestCreateOrderRequest payload",
+                        "name": "createOrderRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RestCreateOrderRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.OrdersProcessingResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/cancel": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Cancels an existing order by orderId or clientOrderId. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trading"
+                ],
+                "summary": "Cancel an order",
+                "parameters": [
+                    {
+                        "description": "RestCancelOrderRequest payload",
+                        "name": "cancelOrderRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RestCancelOrderRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.OrdersProcessingResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/cancel-all": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Cancels all open orders for the current user. Optional filters by symbol, margin account, or side. Rate limit weight: 5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Trading"
+                ],
+                "summary": "Cancel all user orders",
+                "parameters": [
+                    {
+                        "description": "RestCancelAllOrdersRequest payload",
+                        "name": "cancelAllOrdersRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RestCancelAllOrdersRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.OrdersProcessingResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/stats/volume": {
+            "get": {
+                "description": "Returns volume stats for a given timeframe",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Stats"
+                ],
+                "summary": "Retrieve volume stats",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Start time (ISO8601 / RFC3339)",
+                        "name": "startTime",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "End time (ISO8601 / RFC3339)",
+                        "name": "endTime",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/symbols/{symbol}/candles": {
+            "get": {
+                "description": "Returns OHLCV (candles) for a symbol over a timeframe",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve candle data for a symbol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Symbol",
+                        "name": "symbol",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "1m",
+                            "5m",
+                            "15m",
+                            "30m",
+                            "1h",
+                            "4h",
+                            "1d"
+                        ],
+                        "type": "string",
+                        "description": "Candle interval",
+                        "name": "interval",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Start time (ISO8601 / RFC3339)",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "End time (ISO8601 / RFC3339)",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of candles to retrieve (default=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.SymbolCandlesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/symbols/{symbol}/order-book": {
+            "get": {
+                "description": "Returns current order book bids and asks, up to a given depth",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve order book for a symbol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Symbol",
+                        "name": "symbol",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Depth of order book",
+                        "name": "depth",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.OrderBookResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/symbols/{symbol}/trades": {
+            "get": {
+                "description": "Returns last N trades for a symbol",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve recent trades for a symbol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Symbol",
+                        "name": "symbol",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of trades to retrieve (default 100, max 1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.SymbolTradesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/tickers": {
+            "get": {
+                "description": "Returns tickers for all symbols or a list of requested symbols.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve multiple tickers",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "List of symbol strings",
+                        "name": "symbols",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.TickersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/tickers/{symbol}": {
+            "get": {
+                "description": "Returns ticker data (high, low, last, open interest, etc.) for a single symbol",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Market Data"
+                ],
+                "summary": "Retrieve ticker for a specific symbol",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Symbol to fetch ticker for",
+                        "name": "symbol",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.TickerResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/account": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Returns total account value, total P\u0026L, etc. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve total user account info",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserTotalAccountResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/account/candles": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns historical values snapshots. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user total account candles",
+                "parameters": [
+                    {
+                        "enum": [
+                            "1h",
+                            "1d"
+                        ],
+                        "type": "string",
+                        "description": "Candle interval",
+                        "name": "interval",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Start time (ISO8601 / RFC3339)",
+                        "name": "startTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "End time (ISO8601 / RFC3339)",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of candles (default=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserAccountCandlesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/balances": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns user balances across all margin accounts or for a specific margin account. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user balances",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID (optional)",
+                        "name": "marginAccount",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserBalances"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/balances/withdrawable": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns user balances breakdown and other relevant information for withdrawl for a specific margin account. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user withdrawable balances",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID",
+                        "name": "marginAccount",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserWithdrawableBalances"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/orders": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns all orders across all margin accounts, or just those for a specified margin account. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user's orders.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID (optional)",
+                        "name": "marginAccount",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserOrders"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/positions": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns open positions across all margin accounts, or the specified margin account. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve user's open positions.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Margin Account ID (optional)",
+                        "name": "marginAccount",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserPositions"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/trades": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns last N trades that belong to that user. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve recent trades for a user",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Number of trades (default=100, max=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserTradesResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/transfers": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Returns last N transfers for the user. Rate limit weight: 2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Retrieve recent transfers for a user",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Number of updates (default=100, max=1000)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/dto.UserTransfersResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/withdrawals": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    },
+                    {
+                        "ApiKey": []
+                    }
+                ],
+                "description": "Submits a withdrawal request. If marginAccount is specified, funds are deallocated before withdrawal. Rate limit weight: 1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User Data"
+                ],
+                "summary": "Request withdrawal",
+                "parameters": [
+                    {
+                        "description": "Withdrawal request payload",
+                        "name": "withdrawalRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RestWithdrawalRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Withdrawal request accepted for processing"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ExternalError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.Candle": {
+            "type": "object",
+            "properties": {
+                "accumulatedTradesCountAtOpen": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "accumulatedVolumeAtClose": {
+                    "type": "string"
+                },
+                "accumulatedVolumeAtOpen": {
+                    "type": "string"
+                },
+                "closePrice": {
+                    "type": "string"
+                },
+                "closeTime": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "lowPrice": {
+                    "type": "string"
+                },
+                "openInterestAtClose": {
+                    "type": "string"
+                },
+                "openInterestAtOpen": {
+                    "type": "string"
+                },
+                "openPrice": {
+                    "type": "string"
+                },
+                "openTime": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "tradesCount": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "volume": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.CurrencyBalance": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "netBalance": {
+                    "type": "number"
+                },
+                "realizedPnl": {
+                    "type": "number"
+                }
+            }
+        },
+        "dto.CurrencyConversionEntry": {
+            "type": "object",
+            "properties": {
+                "sourceCurrency": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/definitions/dto.MutableDecimalInfo"
+                }
+            }
+        },
+        "dto.CurrencyConversionInfo": {
+            "type": "object",
+            "properties": {
+                "sourceCurrencyToValues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyConversionEntry"
+                    }
+                },
+                "targetCurrency": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.CurrencyFeeInfo": {
+            "type": "object",
+            "properties": {
+                "currencyId": {
+                    "type": "string"
+                },
+                "fee": {
+                    "$ref": "#/definitions/dto.MutableDecimalInfo"
+                }
+            }
+        },
+        "dto.CurrencyInfo": {
+            "type": "object",
+            "properties": {
+                "blockchainAddress": {
+                    "type": "string"
+                },
+                "blockchainId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "scale": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.DepositaryInfo": {
+            "type": "object",
+            "properties": {
+                "blockchainId": {
+                    "type": "string"
+                },
+                "depositaryId": {
+                    "type": "string"
+                },
+                "depositaryType": {
+                    "type": "string",
+                    "enum": [
+                        "blockchain"
+                    ]
+                }
+            }
+        },
+        "dto.ExchangeInfoResponse": {
+            "type": "object",
+            "properties": {
+                "activatedFeatures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.FeatureInfo"
+                    }
+                },
+                "currencies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyInfo"
+                    }
+                },
+                "currencyHaircuts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyConversionInfo"
+                    }
+                },
+                "currencyRates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyConversionInfo"
+                    }
+                },
+                "currencyRiskFactors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyConversionInfo"
+                    }
+                },
+                "depositaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.DepositaryInfo"
+                    }
+                },
+                "marginAccounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MarginAccountInfo"
+                    }
+                },
+                "markets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MarketInfo"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "symbols": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.SymbolInfo"
+                    }
+                },
+                "withdrawalFees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyFeeInfo"
+                    }
+                }
+            }
+        },
+        "dto.ExternalError": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "params": {
+                    "description": "Params carries stable flat string metadata for selected V2 AppErrors only.",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.FeatureInfo": {
+            "type": "object",
+            "properties": {
+                "featureId": {
+                    "type": "integer"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.FloatingRateCandle": {
+            "type": "object",
+            "properties": {
+                "closePrice": {
+                    "type": "string"
+                },
+                "closeTime": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "lowPrice": {
+                    "type": "string"
+                },
+                "marketId": {
+                    "type": "string"
+                },
+                "openPrice": {
+                    "type": "string"
+                },
+                "openTime": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.FloatingRateCandlesResponse": {
+            "type": "object",
+            "properties": {
+                "candles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.FloatingRateCandle"
+                    }
+                }
+            }
+        },
+        "dto.MarginAccount": {
+            "type": "object",
+            "properties": {
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "dv01": {
+                    "type": "string"
+                },
+                "dv100": {
+                    "type": "string"
+                },
+                "initialMarginRequirement": {
+                    "type": "string"
+                },
+                "leverage": {
+                    "type": "string"
+                },
+                "liquidationFees": {
+                    "type": "string"
+                },
+                "maintenanceMarginRequirement": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "realizedPnl": {
+                    "type": "string"
+                },
+                "riskDirection": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "supportedCurrencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "totalMargin": {
+                    "type": "string"
+                },
+                "totalPnl": {
+                    "type": "string"
+                },
+                "tradingFees": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                },
+                "withdrawableBalance": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.MarginAccountInfo": {
+            "type": "object",
+            "properties": {
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "supportedCurrencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "dto.MarginAccountSummary": {
+            "type": "object",
+            "properties": {
+                "currencyId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "initialMarginRatio": {
+                    "type": "string"
+                },
+                "liquidationFees": {
+                    "type": "string"
+                },
+                "liquidationFeesInUsd": {
+                    "type": "string"
+                },
+                "maintenanceMarginRatio": {
+                    "type": "string"
+                },
+                "marginAccountValue": {
+                    "type": "string"
+                },
+                "marginAccountValueInUsd": {
+                    "type": "string"
+                },
+                "realizedPnl": {
+                    "type": "string"
+                },
+                "realizedPnlInUsd": {
+                    "type": "string"
+                },
+                "totalPnl": {
+                    "type": "string"
+                },
+                "totalPnlInUsd": {
+                    "type": "string"
+                },
+                "tradingFees": {
+                    "type": "string"
+                },
+                "tradingFeesInUsd": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.MarginAccountsResponse": {
+            "type": "object",
+            "properties": {
+                "userMarginAccounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MarginAccount"
+                    }
+                }
+            }
+        },
+        "dto.MarketInfo": {
+            "type": "object",
+            "properties": {
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "floatingRate": {
+                    "type": "string"
+                },
+                "floatingRateTimestamp": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "initialMarginThresholdDelta": {
+                    "type": "string"
+                },
+                "maintenanceMarginThresholdDelta": {
+                    "type": "string"
+                },
+                "makerFeeFactor": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "marginMarketHedgeFactor": {
+                    "type": "string"
+                },
+                "marginRequirementMinTimeFactor": {
+                    "type": "string"
+                },
+                "maturityLockUpWindow": {
+                    "type": "string"
+                },
+                "maxPriceImpactPerTrade": {
+                    "type": "string"
+                },
+                "maxTradeNotional": {
+                    "type": "string"
+                },
+                "minFeeTimeFloor": {
+                    "type": "string"
+                },
+                "minMakerFee": {
+                    "type": "string"
+                },
+                "minTakerFee": {
+                    "type": "string"
+                },
+                "minTradeNotional": {
+                    "type": "string"
+                },
+                "novationLiquidationFeesFactor": {
+                    "type": "string"
+                },
+                "orderPriceCollar": {
+                    "type": "string"
+                },
+                "priceTickSize": {
+                    "type": "string"
+                },
+                "productType": {
+                    "type": "string"
+                },
+                "rateMathType": {
+                    "type": "string"
+                },
+                "takerFeeFactor": {
+                    "type": "string"
+                },
+                "underlyingAsset": {
+                    "type": "string"
+                },
+                "unwindingLiquidationFeesFactor": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.MutableDecimalInfo": {
+            "type": "object",
+            "properties": {
+                "updatedAt": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.Order": {
+            "type": "object",
+            "properties": {
+                "avgExecutedPrice": {
+                    "type": "string"
+                },
+                "cancellationReason": {
+                    "type": "string",
+                    "enum": [
+                        "user-request",
+                        "auto-risk-reducing"
+                    ]
+                },
+                "clientOrderId": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "executedQuantity": {
+                    "type": "string"
+                },
+                "initialQuantity": {
+                    "type": "string"
+                },
+                "lastExecutedPrice": {
+                    "type": "string"
+                },
+                "lastExecutedQuantity": {
+                    "type": "string"
+                },
+                "leavesQuantity": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "orderId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "side": {
+                    "type": "string",
+                    "enum": [
+                        "sell",
+                        "buy"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "new",
+                        "partially-filled",
+                        "filled",
+                        "rejected",
+                        "cancelled"
+                    ]
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.OrderBookEntry": {
+            "type": "object",
+            "properties": {
+                "price": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.OrderBookResponse": {
+            "type": "object",
+            "properties": {
+                "asks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.OrderBookEntry"
+                    }
+                },
+                "bids": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.OrderBookEntry"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.OrdersProcessingResponse": {
+            "type": "object",
+            "properties": {
+                "orders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Order"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "trades": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserTrade"
+                    }
+                }
+            }
+        },
+        "dto.Position": {
+            "type": "object",
+            "properties": {
+                "avgPrice": {
+                    "type": "string"
+                },
+                "closedFixedTokens": {
+                    "type": "string"
+                },
+                "closedFloatTradeValue": {
+                    "type": "string"
+                },
+                "currentOpenPositionClosedFixedTokens": {
+                    "type": "string"
+                },
+                "currentOpenPositionClosedFloatTradeValue": {
+                    "type": "string"
+                },
+                "currentOpenPositionLiquidationFees": {
+                    "type": "string"
+                },
+                "currentOpenPositionRealizedPnL": {
+                    "type": "string"
+                },
+                "currentOpenPositionTradingFees": {
+                    "type": "string"
+                },
+                "dv01": {
+                    "type": "string"
+                },
+                "dv100": {
+                    "type": "string"
+                },
+                "isFinalized": {
+                    "type": "boolean"
+                },
+                "isMatured": {
+                    "type": "boolean"
+                },
+                "liquidationFees": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "notional": {
+                    "type": "string"
+                },
+                "realizedPnl": {
+                    "type": "string"
+                },
+                "riskDirection": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "totalFixedTokens": {
+                    "type": "string"
+                },
+                "totalFloatTokens": {
+                    "type": "string"
+                },
+                "totalFloatTradeValue": {
+                    "type": "string"
+                },
+                "totalPnl": {
+                    "type": "string"
+                },
+                "tradingFees": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.PositionMarginDetails": {
+            "type": "object",
+            "properties": {
+                "initialMarginRequirement": {
+                    "type": "string"
+                },
+                "leverage": {
+                    "type": "string"
+                },
+                "liquidationRate": {
+                    "type": "string"
+                },
+                "maintenanceMarginRequirement": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "pendingLongVolume": {
+                    "type": "string"
+                },
+                "pendingShortVolume": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.RestCancelAllOrdersRequest": {
+            "type": "object",
+            "properties": {
+                "marginAccount": {
+                    "type": "string"
+                },
+                "side": {
+                    "type": "string",
+                    "enum": [
+                        "buy",
+                        "sell"
+                    ]
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.RestCancelOrderRequest": {
+            "type": "object",
+            "required": [
+                "symbol"
+            ],
+            "properties": {
+                "clientOrderId": {
+                    "type": "string",
+                    "maxLength": 36
+                },
+                "orderId": {
+                    "type": "string",
+                    "minimum": 1,
+                    "example": "0"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.RestCreateOrderRequest": {
+            "type": "object",
+            "required": [
+                "orderType",
+                "symbol"
+            ],
+            "properties": {
+                "clientOrderId": {
+                    "type": "string",
+                    "maxLength": 36
+                },
+                "flags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "close-position"
+                        ]
+                    }
+                },
+                "orderType": {
+                    "type": "string",
+                    "enum": [
+                        "limit",
+                        "market"
+                    ]
+                },
+                "price": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "string"
+                },
+                "side": {
+                    "type": "string",
+                    "enum": [
+                        "buy",
+                        "sell"
+                    ]
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "timeInForce": {
+                    "type": "string",
+                    "enum": [
+                        "GTC",
+                        "IOC"
+                    ]
+                }
+            }
+        },
+        "dto.RestWithdrawalRequest": {
+            "type": "object",
+            "required": [
+                "amount",
+                "chainId",
+                "currencyId",
+                "ownerSignature"
+            ],
+            "properties": {
+                "amount": {
+                    "type": "string",
+                    "maxLength": 128
+                },
+                "chainId": {
+                    "type": "string"
+                },
+                "clientWithdrawalId": {
+                    "type": "string",
+                    "maxLength": 36
+                },
+                "currencyId": {
+                    "type": "string",
+                    "maxLength": 8
+                },
+                "deadline": {
+                    "type": "string",
+                    "minimum": 0,
+                    "example": "0"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "ownerSignature": {
+                    "description": "TODO: in order to be able to validate this we need to use a string",
+                    "type": "string"
+                },
+                "unwrapNativeToken": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "dto.SymbolCandlesResponse": {
+            "type": "object",
+            "properties": {
+                "candles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Candle"
+                    }
+                }
+            }
+        },
+        "dto.SymbolInfo": {
+            "type": "object",
+            "properties": {
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "floatIndex": {
+                    "type": "string"
+                },
+                "floatIndexTimestamp": {
+                    "type": "string"
+                },
+                "floatingRate": {
+                    "type": "string"
+                },
+                "floatingRateTimestamp": {
+                    "type": "string"
+                },
+                "initialMarginThresholdDelta": {
+                    "type": "string"
+                },
+                "isExpired": {
+                    "type": "boolean"
+                },
+                "isFinalized": {
+                    "type": "boolean"
+                },
+                "isLockedUp": {
+                    "type": "boolean"
+                },
+                "issueDate": {
+                    "type": "string"
+                },
+                "maintenanceMarginThresholdDelta": {
+                    "type": "string"
+                },
+                "makerFeeFactor": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "marginMarketHedgeFactor": {
+                    "type": "string"
+                },
+                "marginRequirementMinTimeFactor": {
+                    "type": "string"
+                },
+                "market": {
+                    "type": "string"
+                },
+                "maturityDate": {
+                    "type": "string"
+                },
+                "maturityLockUpWindow": {
+                    "type": "string"
+                },
+                "maxPriceImpactPerTrade": {
+                    "type": "string"
+                },
+                "maxTradeNotional": {
+                    "type": "string"
+                },
+                "minMakerFee": {
+                    "type": "string"
+                },
+                "minTakerFee": {
+                    "type": "string"
+                },
+                "minTradeNotional": {
+                    "type": "string"
+                },
+                "novationLiquidationFeesFactor": {
+                    "type": "string"
+                },
+                "openInterestLimit": {
+                    "type": "string"
+                },
+                "orderPriceCollar": {
+                    "type": "string"
+                },
+                "pausedLiquidations": {
+                    "type": "boolean"
+                },
+                "pausedOrders": {
+                    "type": "boolean"
+                },
+                "priceTickSize": {
+                    "type": "string"
+                },
+                "productType": {
+                    "type": "string"
+                },
+                "rateMathType": {
+                    "type": "string"
+                },
+                "settlementCurrency": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "takerFeeFactor": {
+                    "type": "string"
+                },
+                "underlyingAsset": {
+                    "type": "string"
+                },
+                "unwindingLiquidationFeesFactor": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.SymbolTrade": {
+            "type": "object",
+            "properties": {
+                "cmdSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "floatIndex": {
+                    "type": "string"
+                },
+                "openInterest": {
+                    "type": "string"
+                },
+                "prevAccumulatedVolume": {
+                    "type": "string"
+                },
+                "prevOpenInterest": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "side": {
+                    "type": "string",
+                    "enum": [
+                        "sell",
+                        "buy"
+                    ]
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "symbolTradeSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "tradeType": {
+                    "type": "string",
+                    "enum": [
+                        "regular",
+                        "liquidation",
+                        "self-trade"
+                    ]
+                },
+                "volume": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.SymbolTradesResponse": {
+            "type": "object",
+            "properties": {
+                "trades": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.SymbolTrade"
+                    }
+                }
+            }
+        },
+        "dto.Ticker": {
+            "type": "object",
+            "properties": {
+                "askPrice": {
+                    "type": "string"
+                },
+                "askSize": {
+                    "type": "string"
+                },
+                "bidPrice": {
+                    "type": "string"
+                },
+                "bidSize": {
+                    "type": "string"
+                },
+                "highPrice": {
+                    "type": "string"
+                },
+                "lastAccumulatedTradesCount": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "lastAccumulatedVolume": {
+                    "type": "string"
+                },
+                "lastOpenInterest": {
+                    "type": "string"
+                },
+                "lastPrice": {
+                    "type": "string"
+                },
+                "lowPrice": {
+                    "type": "string"
+                },
+                "markPrice": {
+                    "type": "string"
+                },
+                "openInterestChange": {
+                    "type": "string"
+                },
+                "priceChange": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "tradesCountChange": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "volumeChange": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.TickerResponse": {
+            "type": "object",
+            "properties": {
+                "ticker": {
+                    "$ref": "#/definitions/dto.Ticker"
+                }
+            }
+        },
+        "dto.TickersResponse": {
+            "type": "object",
+            "properties": {
+                "tickers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Ticker"
+                    }
+                }
+            }
+        },
+        "dto.Transfer": {
+            "type": "object",
+            "properties": {
+                "chainAddress": {
+                    "type": "string"
+                },
+                "chainId": {
+                    "type": "string"
+                },
+                "chainTxHash": {
+                    "type": "string"
+                },
+                "cmdSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "currencyId": {
+                    "type": "string"
+                },
+                "custodianType": {
+                    "type": "string"
+                },
+                "deadline": {
+                    "type": "string"
+                },
+                "delta": {
+                    "type": "string"
+                },
+                "fee": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "newAccountFreeBalance": {
+                    "type": "string"
+                },
+                "newMarginAccountBalance": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "transferEntitySeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "transferExecSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "transferStatus": {
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "confirmed",
+                        "canceled"
+                    ]
+                },
+                "transferType": {
+                    "type": "string",
+                    "enum": [
+                        "deposit",
+                        "withdrawal",
+                        "allocation-to-margin-account",
+                        "deallocation-from-margin-account",
+                        "exchange-fees-credit",
+                        "delegation-from-custodian",
+                        "undelegation-to-custodian"
+                    ]
+                },
+                "unwrapNativeToken": {
+                    "type": "boolean"
+                },
+                "userCustodyAccountId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserAccountCandle": {
+            "type": "object",
+            "properties": {
+                "closeRealizedPnL": {
+                    "type": "string"
+                },
+                "closeTime": {
+                    "type": "string"
+                },
+                "closeTotalPnL": {
+                    "type": "string"
+                },
+                "closeTotalValue": {
+                    "type": "string"
+                },
+                "closeUnrealizedPnL": {
+                    "type": "string"
+                },
+                "highRealizedPnL": {
+                    "type": "string"
+                },
+                "highTotalPnL": {
+                    "type": "string"
+                },
+                "highTotalValue": {
+                    "type": "string"
+                },
+                "highUnrealizedPnL": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "liquidationFeesAtClose": {
+                    "type": "string"
+                },
+                "liquidationFeesAtOpen": {
+                    "type": "string"
+                },
+                "lowRealizedPnL": {
+                    "type": "string"
+                },
+                "lowTotalPnL": {
+                    "type": "string"
+                },
+                "lowTotalValue": {
+                    "type": "string"
+                },
+                "lowUnrealizedPnL": {
+                    "type": "string"
+                },
+                "openRealizedPnL": {
+                    "type": "string"
+                },
+                "openTime": {
+                    "type": "string"
+                },
+                "openTotalPnL": {
+                    "type": "string"
+                },
+                "openTotalValue": {
+                    "type": "string"
+                },
+                "openUnrealizedPnL": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "systemFeesAtClose": {
+                    "type": "string"
+                },
+                "systemFeesAtOpen": {
+                    "type": "string"
+                },
+                "tradingFeesAtClose": {
+                    "type": "string"
+                },
+                "tradingFeesAtOpen": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserAccountCandlesResponse": {
+            "type": "object",
+            "properties": {
+                "candles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserAccountCandle"
+                    }
+                }
+            }
+        },
+        "dto.UserBalances": {
+            "type": "object",
+            "properties": {
+                "marginAccountsBalances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyBalance"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "totalBalances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CurrencyBalance"
+                    }
+                }
+            }
+        },
+        "dto.UserMarginAccountCandle": {
+            "type": "object",
+            "properties": {
+                "closeMargin": {
+                    "type": "string"
+                },
+                "closeRealizedPnL": {
+                    "type": "string"
+                },
+                "closeTime": {
+                    "type": "string"
+                },
+                "closeTotalPnL": {
+                    "type": "string"
+                },
+                "closeUnrealizedPnL": {
+                    "type": "string"
+                },
+                "highMargin": {
+                    "type": "string"
+                },
+                "highRealizedPnL": {
+                    "type": "string"
+                },
+                "highTotalPnL": {
+                    "type": "string"
+                },
+                "highUnrealizedPnL": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "liquidationFeesAtClose": {
+                    "type": "string"
+                },
+                "liquidationFeesAtOpen": {
+                    "type": "string"
+                },
+                "lowMargin": {
+                    "type": "string"
+                },
+                "lowRealizedPnL": {
+                    "type": "string"
+                },
+                "lowTotalPnL": {
+                    "type": "string"
+                },
+                "lowUnrealizedPnL": {
+                    "type": "string"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "openMargin": {
+                    "type": "string"
+                },
+                "openRealizedPnL": {
+                    "type": "string"
+                },
+                "openTime": {
+                    "type": "string"
+                },
+                "openTotalPnL": {
+                    "type": "string"
+                },
+                "openUnrealizedPnL": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "tradingFeesAtClose": {
+                    "type": "string"
+                },
+                "tradingFeesAtOpen": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserMarginAccountCandlesResponse": {
+            "type": "object",
+            "properties": {
+                "candles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserMarginAccountCandle"
+                    }
+                }
+            }
+        },
+        "dto.UserOrders": {
+            "type": "object",
+            "properties": {
+                "orders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Order"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.UserPositions": {
+            "type": "object",
+            "properties": {
+                "positions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Position"
+                    }
+                },
+                "positionsMarginDetails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.PositionMarginDetails"
+                    }
+                },
+                "seqId": {
+                    "type": "string",
+                    "example": "0"
+                }
+            }
+        },
+        "dto.UserTotalAccountResponse": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "$ref": "#/definitions/dto.UserTotalAccountSummary"
+                }
+            }
+        },
+        "dto.UserTotalAccountSummary": {
+            "type": "object",
+            "properties": {
+                "accountValue": {
+                    "type": "string"
+                },
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "freeBalance": {
+                    "type": "string"
+                },
+                "liquidationFees": {
+                    "type": "string"
+                },
+                "marginAccounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MarginAccountSummary"
+                    }
+                },
+                "realizedPnl": {
+                    "type": "string"
+                },
+                "seqId": {
+                    "type": "integer"
+                },
+                "systemFees": {
+                    "type": "string"
+                },
+                "totalPnL": {
+                    "type": "string"
+                },
+                "tradingFees": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserTrade": {
+            "type": "object",
+            "properties": {
+                "cmdSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "floatIndex": {
+                    "type": "string"
+                },
+                "liquidationFees": {
+                    "type": "string"
+                },
+                "liquidityRole": {
+                    "type": "string",
+                    "enum": [
+                        "maker",
+                        "taker"
+                    ]
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "orderId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "side": {
+                    "type": "string",
+                    "enum": [
+                        "sell",
+                        "buy"
+                    ]
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "tradeType": {
+                    "type": "string",
+                    "enum": [
+                        "regular",
+                        "liquidation",
+                        "self-trade"
+                    ]
+                },
+                "tradingFees": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                },
+                "userTradeSeqId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "volume": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserTradesResponse": {
+            "type": "object",
+            "properties": {
+                "trades": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserTrade"
+                    }
+                }
+            }
+        },
+        "dto.UserTransfersResponse": {
+            "type": "object",
+            "properties": {
+                "updates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Transfer"
+                    }
+                }
+            }
+        },
+        "dto.UserWithdrawableBalances": {
+            "type": "object",
+            "properties": {
+                "nextWithdrawSequenceId": {
+                    "type": "string",
+                    "example": "0"
+                },
+                "withdrawables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.WithdrawableBalance"
+                    }
+                }
+            }
+        },
+        "dto.WithdrawableBalance": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "fee": {
+                    "type": "number"
+                },
+                "lockedBalance": {
+                    "type": "number"
+                },
+                "marginAccount": {
+                    "type": "string"
+                },
+                "maxNetWithdrawAmount": {
+                    "type": "number"
+                },
+                "withdrawableBalance": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

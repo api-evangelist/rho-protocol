@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.rho.trading/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+  spec_version_label: development
+  docs: https://docs.rho.trading/api-reference/overview.md
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecated_products:
+  - name: Yield Futures / stablecoin markets (Aegis YUSD)
+    status: deprecated
+    note: Legacy reference only; stablecoin markets are no longer part of the active market lineup.
+    source: https://docs.rho.trading/rho-x-product/markets-and-instruments.md
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+security_audits:
+  auditors: [Halborn, Oxorio, Zokyo]
+  source: https://docs.rho.trading/risk-and-security/security-model-and-audits.md
+deprecated_operations: []

@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rho Exchange API
+  version: 1.0.0
+extends: openapi/rho-protocol-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: rho-protocol
+    x-apievangelist-product: Rho X — on-chain rate/perp trading & settlement
+    x-servers-note: >-
+      The harvested Swagger 2.0 has an empty host; production REST base is
+      https://x.rho.trading/api/v1 (also https://api.x.rho.trading/api/v1).
+    x-websocket: wss://stream.x.rho.trading/ws-api/v1
+    x-auth-api: https://api.x.rho.trading/auth-api/v1
+    x-mcp-server: "@rholabs/rho-mcp"
+    x-rate-limit-headers: [X-RateLimit-Limit, X-RateLimit-Remaining]
+- target: $.securityDefinitions.Bearer
+  update:
+    x-apievangelist-note: >-
+      Access token (Bearer, sliding 7-day TTL, FullAccess) or scoped API key
+      (ReadOnly / FullAccess). See authentication/rho-protocol-authentication.yml.

@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://docs.rho.trading/developer/rho-mcp-server.md
+server:
+  name: rho-mcp
+  package: "@rholabs/rho-mcp"
+  transport: http
+  install: npx -y @rholabs/rho-mcp@latest
+  default_port: 8787
+  api_endpoint: https://x.rho.trading/api/v1
+  repository: https://github.com/RhoLabs/rho-mcp
+  hosts: [Claude Code, Claude Desktop, Cursor, Zed, Windsurf]
+authentication:
+  methods:
+  - {type: browser, note: Opens a browser window and stores tokens in the OS keychain (interactive use)}
+  - {type: api-key, note: 'Create a ReadOnly or FullAccess key in Rho X settings (bots/automation)'}
+config_example:
+  command: npx
+  args: ["-y", "@rholabs/rho-mcp@latest"]
+tool_count: 26
+tool_categories:
+- name: Gateway
+  desc: Health checks, authorization, account management
+- name: Market data
+  desc: Tickers, order books, candles, volume stats
+- name: Account
+  desc: Balances, positions, fills, margin state
+- name: Trading
+  desc: Place/cancel orders (requires FullAccess scope)

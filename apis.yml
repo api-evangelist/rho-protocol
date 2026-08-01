@@ -1,22 +1,157 @@
 aid: rho-protocol
 name: Rho Protocol
-description: Rho Protocol is a company surfaced as a portfolio company of speedinvest and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Rho Protocol (Rho Labs) operates Rho X, a decentralized multi-asset trading and settlement
+  layer for on-chain capital markets — interest-rate futures, perpetuals, and tokenized
+  real-world assets tradable from a single cross-margined account. It offers off-exchange
+  collateral custody (BitGo OES or self-custody), zero-gas settlement, and a private cross-chain
+  RFQ swap service (Rho Relay) bridging Ethereum and Canton Network assets. Rho X exposes a REST
+  API, a WebSocket streaming API, an npm SDK, and an official Model Context Protocol (MCP) server
+  for programmatic trading, market data, and account management. Backed by Speedinvest.
 url: https://raw.githubusercontent.com/api-evangelist/rho-protocol/refs/heads/main/apis.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://github.com/RhoLabs.png
 tags:
 - Company
-apis: []
+- Trading
+- DeFi
+- Derivatives
+- Capital Markets
+- Blockchain
+- Market Data
+- WebSocket
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: rho-protocol:rho-protocol-market-data-api
+  name: Rho Protocol Market Data API
+  description: The Market Data API from Rho Protocol — 7 operation(s) for market data.
+  humanURL: https://docs.rho.trading/api-reference/overview.md
+  baseURL: https://x.rho.trading/api/v1
+  tags:
+  - Market Data
+  properties:
+  - type: OpenAPI
+    url: openapi/rho-protocol-market-data-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/rho-protocol-ws-asyncapi.yml
+- aid: rho-protocol:rho-protocol-stats-api
+  name: Rho Protocol Stats API
+  description: The Stats API from Rho Protocol — 1 operation(s) for stats.
+  humanURL: https://docs.rho.trading/api-reference/overview.md
+  baseURL: https://x.rho.trading/api/v1
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/rho-protocol-stats-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/rho-protocol-ws-asyncapi.yml
+- aid: rho-protocol:rho-protocol-trading-api
+  name: Rho Protocol Trading API
+  description: The Trading API from Rho Protocol — 3 operation(s) for trading.
+  humanURL: https://docs.rho.trading/api-reference/overview.md
+  baseURL: https://x.rho.trading/api/v1
+  tags:
+  - Trading
+  properties:
+  - type: OpenAPI
+    url: openapi/rho-protocol-trading-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/rho-protocol-ws-asyncapi.yml
+- aid: rho-protocol:rho-protocol-user-data-api
+  name: Rho Protocol User Data API
+  description: The User Data API from Rho Protocol — 12 operation(s) for user data.
+  humanURL: https://docs.rho.trading/api-reference/overview.md
+  baseURL: https://x.rho.trading/api/v1
+  tags:
+  - User Data
+  properties:
+  - type: OpenAPI
+    url: openapi/rho-protocol-user-data-api-openapi.yml
+  - type: AsyncAPI
+    url: asyncapi/rho-protocol-ws-asyncapi.yml
+common:
+- type: DomainSecurity
+  url: security/rho-protocol-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.rho.trading/
+- type: Documentation
+  url: https://docs.rho.trading/
+- type: APIReference
+  url: https://docs.rho.trading/api-reference/rest-api-reference.md
+- type: GettingStarted
+  url: https://docs.rho.trading/getting-started/quick-start-first-trade.md
+- type: Authentication
+  url: authentication/rho-protocol-authentication.yml
+- type: Website
+  url: https://x.rho.trading/
+- type: Blog
+  url: https://docs.rho.trading/
+- type: Support
+  url: https://docs.rho.trading/faq-and-support/contact-support.md
+- type: GitHubOrganization
+  url: https://github.com/RhoLabs
+- type: OpenAPI
+  url: openapi/rho-protocol-openapi-original.json
+- type: Overlay
+  url: overlays/rho-protocol-openapi-overlay.yaml
+- type: AsyncAPI
+  url: asyncapi/rho-protocol-ws-asyncapi.yml
+- type: Webhooks
+  url: asyncapi/rho-protocol-ws-asyncapi.yml
+- type: Packages
+  url: packages/rho-protocol-packages.yml
+- type: SDKs
+  url: packages/rho-protocol-packages.yml
+- type: MCPServer
+  url: mcp/rho-protocol-mcp.yml
+- type: LLMsTxt
+  url: llms/rho-protocol-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Conventions
+  url: conventions/rho-protocol-conventions.yml
+- type: ErrorCatalog
+  url: errors/rho-protocol-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/rho-protocol-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/rho-protocol-lifecycle.yml
+- type: Conformance
+  url: conformance/rho-protocol-conformance.yml
+- type: DataModel
+  url: data-model/rho-protocol-data-model.yml
+- type: RateLimits
+  url: rate-limits/rho-protocol-rate-limits.yml
+- type: AgenticAccess
+  url: agentic-access/rho-protocol-agentic-access.yml

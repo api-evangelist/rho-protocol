@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rho-protocol-openapi-original.json
+docs: https://docs.rho.trading/api-reference/overview.md
+format: custom
+envelope:
+  schema: dto.ExternalError
+  fields:
+    code: string        # stable error code
+    message: string     # human-readable message
+    params: object      # stable flat string metadata for selected errors
+  note: Rho X does not use RFC 9457 application/problem+json; errors are returned as a flat {code, message, params} envelope.
+problems:
+- status: 400
+  title: Bad request
+  meaning: Malformed request or invalid parameters.
+  remediation: Validate the request body/params against the OpenAPI schema.
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid authentication credential (access token / API key).
+  remediation: Provide a valid Authorization header; refresh expired access tokens.
+  applies_to: [User Data endpoints]
+- status: 403
+  title: Insufficient permissions
+  meaning: The credential's scope is insufficient (e.g. ReadOnly key on a Trading call).
+  remediation: Use a FullAccess-scoped credential for write/trading operations.
+  applies_to: [User Data endpoints]
+- status: 429
+  title: Rate limited
+  meaning: Request rate exceeded; see X-RateLimit-Limit / X-RateLimit-Remaining.
+  remediation: Implement exponential backoff and respect the rate-limit headers.
+- status: 500
+  title: Internal server error
+  meaning: Unexpected server-side error.
+  remediation: Retry with backoff; contact support if persistent.
+- status: 202
+  title: Accepted
+  meaning: Withdrawal request accepted for asynchronous processing.
+  applies_to: [POST /users/withdrawals]
