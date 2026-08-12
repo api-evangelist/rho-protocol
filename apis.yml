@@ -122,7 +122,7 @@ common:
 - type: GitHubOrganization
   url: https://github.com/RhoLabs
 - type: OpenAPI
-  url: openapi/rho-protocol-openapi-original.json
+  url: openapi/_original/rho-protocol-openapi-original.json
 - type: Overlay
   url: overlays/rho-protocol-openapi-overlay.yaml
 - type: AsyncAPI
