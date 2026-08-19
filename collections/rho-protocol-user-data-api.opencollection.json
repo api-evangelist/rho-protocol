@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rho Exchange Market Data User Data API",
+    "version": "development"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all margin accounts for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/margin-accounts"
+          },
+          "docs": "Returns all margin accounts, positions, orders, etc. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single margin account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/margin-accounts/:marginAccount",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "path",
+                "description": "Margin Account ID"
+              }
+            ]
+          },
+          "docs": "Returns margin account, positions, orders, etc. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Retrieve user margin account candles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/margin-accounts/:marginAccount/candles",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "path",
+                "description": "Margin Account ID"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Candle interval"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of candles (default=1000)"
+              }
+            ]
+          },
+          "docs": "Returns historical margin snapshots. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Retrieve total user account info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/account"
+          },
+          "docs": "Returns total account value, total P&L, etc. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Retrieve user total account candles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/account/candles",
+            "params": [
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Candle interval"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of candles (default=1000)"
+              }
+            ]
+          },
+          "docs": "Returns historical values snapshots. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Retrieve user balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/balances",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "query",
+                "description": "Margin Account ID (optional)"
+              }
+            ]
+          },
+          "docs": "Returns user balances across all margin accounts or for a specific margin account. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Retrieve user withdrawable balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/balances/withdrawable",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "query",
+                "description": "Margin Account ID"
+              }
+            ]
+          },
+          "docs": "Returns user balances breakdown and other relevant information for withdrawl for a specific margin account. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Retrieve user's orders.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/orders",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "query",
+                "description": "Margin Account ID (optional)"
+              }
+            ]
+          },
+          "docs": "Returns all orders across all margin accounts, or just those for a specified margin account. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Retrieve user's open positions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/positions",
+            "params": [
+              {
+                "name": "marginAccount",
+                "value": "",
+                "type": "query",
+                "description": "Margin Account ID (optional)"
+              }
+            ]
+          },
+          "docs": "Returns open positions across all margin accounts, or the specified margin account. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Retrieve recent trades for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/trades",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of trades (default=100, max=1000)"
+              }
+            ]
+          },
+          "docs": "Returns last N trades that belong to that user. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Retrieve recent transfers for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/users/transfers",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of updates (default=100, max=1000)"
+              }
+            ]
+          },
+          "docs": "Returns last N transfers for the user. Rate limit weight: 2"
+        },
+        {
+          "info": {
+            "name": "Request withdrawal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/users/withdrawals"
+          },
+          "docs": "Submits a withdrawal request. If marginAccount is specified, funds are deallocated before withdrawal. Rate limit weight: 1"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

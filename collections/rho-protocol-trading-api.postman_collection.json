@@ -1,0 +1,691 @@
+{
+  "item": [
+    {
+      "id": "5c4fb112-12d1-4d93-849a-aa9811cd93fa",
+      "name": "Trading",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b893276-0cd9-49c6-bc5d-21078aa7278d",
+          "name": "Create an order",
+          "request": {
+            "name": "Create an order",
+            "description": {
+              "content": "Submits a new order for the user, returning the processed result. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderType\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"price\": \"<string>\",\n  \"quantity\": \"<string>\",\n  \"side\": \"<string>\",\n  \"timeInForce\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b294843a-ae05-4ef7-9c12-1e3e38c39184",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderType\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"price\": \"<string>\",\n  \"quantity\": \"<string>\",\n  \"side\": \"<string>\",\n  \"timeInForce\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"user-request\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"sell\",\n      \"status\": \"rejected\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"buy\",\n      \"status\": \"rejected\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\",\n  \"trades\": [\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"taker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"buy\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"regular\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    },\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"maker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"sell\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "263c4e79-dbfb-4cbc-b567-bfe086e91a37",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderType\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"price\": \"<string>\",\n  \"quantity\": \"<string>\",\n  \"side\": \"<string>\",\n  \"timeInForce\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "620c206e-030e-4831-bc5b-9b347122074c",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderType\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"flags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"price\": \"<string>\",\n  \"quantity\": \"<string>\",\n  \"side\": \"<string>\",\n  \"timeInForce\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f63bf911-93ab-4b87-bc10-dfafa92d9031",
+          "name": "Cancel an order",
+          "request": {
+            "name": "Cancel an order",
+            "description": {
+              "content": "Cancels an existing order by orderId or clientOrderId. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"orderId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eff64046-cbe2-4c91-9120-565bc47c24e1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"orderId\": \"0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"buy\",\n      \"status\": \"partially-filled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"sell\",\n      \"status\": \"filled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\",\n  \"trades\": [\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"maker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"buy\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    },\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"taker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"sell\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea15cfa6-ecd0-43b7-a1cb-a645781fa56c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"orderId\": \"0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5205d387-18de-4e77-aabb-cbb9dd7de46f",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"symbol\": \"<string>\",\n  \"clientOrderId\": \"<string>\",\n  \"orderId\": \"0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba0f26a3-ba1c-4dbc-81a9-b5a8dcd013b8",
+          "name": "Cancel all user orders",
+          "request": {
+            "name": "Cancel all user orders",
+            "description": {
+              "content": "Cancels all open orders for the current user. Optional filters by symbol, margin account, or side. Rate limit weight: 5",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                "cancel-all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"marginAccount\": \"<string>\",\n  \"side\": \"<string>\",\n  \"symbol\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef1adcb3-979a-48bc-ba21-6dbabab2199e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel-all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"marginAccount\": \"<string>\",\n  \"side\": \"<string>\",\n  \"symbol\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"buy\",\n      \"status\": \"partially-filled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"sell\",\n      \"status\": \"filled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\",\n  \"trades\": [\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"maker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"buy\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    },\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"taker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"sell\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ff8f3dc-b265-4139-a23b-518b9a876ce7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel-all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"marginAccount\": \"<string>\",\n  \"side\": \"<string>\",\n  \"symbol\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26eda07e-50df-4dab-aded-a9dfd878c0ad",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    "cancel-all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"marginAccount\": \"<string>\",\n  \"side\": \"<string>\",\n  \"symbol\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40aa8694-c01a-4890-8e5c-c4e8764b4e25",
+    "name": "Rho Exchange Market Data Trading API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

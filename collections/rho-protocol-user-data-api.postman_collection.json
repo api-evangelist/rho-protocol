@@ -1,0 +1,3865 @@
+{
+  "item": [
+    {
+      "id": "80ff8395-801c-49ee-a07b-90f7325ee765",
+      "name": "User Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd5f65e7-b078-4fa9-963f-82454fd249d4",
+          "name": "Retrieve all margin accounts for a user",
+          "request": {
+            "name": "Retrieve all margin accounts for a user",
+            "description": {
+              "content": "Returns all margin accounts, positions, orders, etc. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "margin-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d2f5e3a6-1a4d-43f7-bd90-8185f7eccbc8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userMarginAccounts\": [\n    {\n      \"baseCurrency\": \"string\",\n      \"dv01\": \"string\",\n      \"dv100\": \"string\",\n      \"initialMarginRequirement\": \"string\",\n      \"leverage\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"maintenanceMarginRequirement\": \"string\",\n      \"marginAccount\": \"string\",\n      \"realizedPnl\": \"string\",\n      \"riskDirection\": \"string\",\n      \"seqId\": \"0\",\n      \"supportedCurrencies\": [\n        \"string\",\n        \"string\"\n      ],\n      \"totalMargin\": \"string\",\n      \"totalPnl\": \"string\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"withdrawableBalance\": \"string\"\n    },\n    {\n      \"baseCurrency\": \"string\",\n      \"dv01\": \"string\",\n      \"dv100\": \"string\",\n      \"initialMarginRequirement\": \"string\",\n      \"leverage\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"maintenanceMarginRequirement\": \"string\",\n      \"marginAccount\": \"string\",\n      \"realizedPnl\": \"string\",\n      \"riskDirection\": \"string\",\n      \"seqId\": \"0\",\n      \"supportedCurrencies\": [\n        \"string\",\n        \"string\"\n      ],\n      \"totalMargin\": \"string\",\n      \"totalPnl\": \"string\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"withdrawableBalance\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa05dabe-38d1-4655-a816-598505710f2f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39339374-6cba-4a43-b1a6-f630e2841524",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4c018a7-610a-4efd-9ad7-cdcc414b3c2c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfb0fe1e-ac3f-4e16-8ca0-1905926d33fc",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63b2aad3-9226-4611-8a62-1e84759b7aa4",
+          "name": "Retrieve a single margin account",
+          "request": {
+            "name": "Retrieve a single margin account",
+            "description": {
+              "content": "Returns margin account, positions, orders, etc. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "margin-accounts",
+                ":marginAccount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "marginAccount",
+                  "description": "(Required) Margin Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f446a639-b9b4-4063-b9e9-643a655e31a1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"baseCurrency\": \"string\",\n  \"dv01\": \"string\",\n  \"dv100\": \"string\",\n  \"initialMarginRequirement\": \"string\",\n  \"leverage\": \"string\",\n  \"liquidationFees\": \"string\",\n  \"maintenanceMarginRequirement\": \"string\",\n  \"marginAccount\": \"string\",\n  \"realizedPnl\": \"string\",\n  \"riskDirection\": \"string\",\n  \"seqId\": \"0\",\n  \"supportedCurrencies\": [\n    \"string\",\n    \"string\"\n  ],\n  \"totalMargin\": \"string\",\n  \"totalPnl\": \"string\",\n  \"tradingFees\": \"string\",\n  \"userId\": \"string\",\n  \"withdrawableBalance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "623a6197-2d31-4c90-a1dd-eaee8b5055a1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "965ade9a-3d72-4090-b788-f1f4d0cc03c2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dcaa22d-f0b2-415e-99a8-277792dceb74",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c8e72bf-88a7-446f-bec5-407387bd7482",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65e853be-aae7-4ada-bae2-17f149e9b84b",
+          "name": "Retrieve user margin account candles",
+          "request": {
+            "name": "Retrieve user margin account candles",
+            "description": {
+              "content": "Returns historical margin snapshots. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "margin-accounts",
+                ":marginAccount",
+                "candles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Candle interval"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<string>",
+                  "description": "Start time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<string>",
+                  "description": "End time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of candles (default=1000)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "marginAccount",
+                  "description": "(Required) Margin Account ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47a9b38c-ce93-495f-a40b-d58c6f60e199",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candles\": [\n    {\n      \"closeMargin\": \"string\",\n      \"closeRealizedPnL\": \"string\",\n      \"closeTime\": \"string\",\n      \"closeTotalPnL\": \"string\",\n      \"closeUnrealizedPnL\": \"string\",\n      \"highMargin\": \"string\",\n      \"highRealizedPnL\": \"string\",\n      \"highTotalPnL\": \"string\",\n      \"highUnrealizedPnL\": \"string\",\n      \"interval\": \"string\",\n      \"liquidationFeesAtClose\": \"string\",\n      \"liquidationFeesAtOpen\": \"string\",\n      \"lowMargin\": \"string\",\n      \"lowRealizedPnL\": \"string\",\n      \"lowTotalPnL\": \"string\",\n      \"lowUnrealizedPnL\": \"string\",\n      \"marginAccount\": \"string\",\n      \"openMargin\": \"string\",\n      \"openRealizedPnL\": \"string\",\n      \"openTime\": \"string\",\n      \"openTotalPnL\": \"string\",\n      \"openUnrealizedPnL\": \"string\",\n      \"seqId\": \"0\",\n      \"tradingFeesAtClose\": \"string\",\n      \"tradingFeesAtOpen\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"closeMargin\": \"string\",\n      \"closeRealizedPnL\": \"string\",\n      \"closeTime\": \"string\",\n      \"closeTotalPnL\": \"string\",\n      \"closeUnrealizedPnL\": \"string\",\n      \"highMargin\": \"string\",\n      \"highRealizedPnL\": \"string\",\n      \"highTotalPnL\": \"string\",\n      \"highUnrealizedPnL\": \"string\",\n      \"interval\": \"string\",\n      \"liquidationFeesAtClose\": \"string\",\n      \"liquidationFeesAtOpen\": \"string\",\n      \"lowMargin\": \"string\",\n      \"lowRealizedPnL\": \"string\",\n      \"lowTotalPnL\": \"string\",\n      \"lowUnrealizedPnL\": \"string\",\n      \"marginAccount\": \"string\",\n      \"openMargin\": \"string\",\n      \"openRealizedPnL\": \"string\",\n      \"openTime\": \"string\",\n      \"openTotalPnL\": \"string\",\n      \"openUnrealizedPnL\": \"string\",\n      \"seqId\": \"0\",\n      \"tradingFeesAtClose\": \"string\",\n      \"tradingFeesAtOpen\": \"string\",\n      \"userId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92b67c7c-754c-42c7-9b22-7015856b9d84",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5ebc435-e79c-4bce-b327-ec39946524b2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c2e9b84-cdf7-4548-b203-7d3255d9a7fc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02d96a75-bdcd-43fd-923f-f708e78f6fb7",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "margin-accounts",
+                    ":marginAccount",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marginAccount",
+                      "description": "(Required) Margin Account ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f542f552-b731-4caa-9602-6c7fc765e0c1",
+          "name": "Retrieve total user account info",
+          "request": {
+            "name": "Retrieve total user account info",
+            "description": {
+              "content": "Returns total account value, total P&L, etc. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3efa14f2-25dd-4ebb-ad9d-3ab1a9755acc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"accountValue\": \"string\",\n    \"baseCurrency\": \"string\",\n    \"freeBalance\": \"string\",\n    \"liquidationFees\": \"string\",\n    \"marginAccounts\": [\n      {\n        \"currencyId\": \"string\",\n        \"id\": \"string\",\n        \"initialMarginRatio\": \"string\",\n        \"liquidationFees\": \"string\",\n        \"liquidationFeesInUsd\": \"string\",\n        \"maintenanceMarginRatio\": \"string\",\n        \"marginAccountValue\": \"string\",\n        \"marginAccountValueInUsd\": \"string\",\n        \"realizedPnl\": \"string\",\n        \"realizedPnlInUsd\": \"string\",\n        \"totalPnl\": \"string\",\n        \"totalPnlInUsd\": \"string\",\n        \"tradingFees\": \"string\",\n        \"tradingFeesInUsd\": \"string\"\n      },\n      {\n        \"currencyId\": \"string\",\n        \"id\": \"string\",\n        \"initialMarginRatio\": \"string\",\n        \"liquidationFees\": \"string\",\n        \"liquidationFeesInUsd\": \"string\",\n        \"maintenanceMarginRatio\": \"string\",\n        \"marginAccountValue\": \"string\",\n        \"marginAccountValueInUsd\": \"string\",\n        \"realizedPnl\": \"string\",\n        \"realizedPnlInUsd\": \"string\",\n        \"totalPnl\": \"string\",\n        \"totalPnlInUsd\": \"string\",\n        \"tradingFees\": \"string\",\n        \"tradingFeesInUsd\": \"string\"\n      }\n    ],\n    \"realizedPnl\": \"string\",\n    \"seqId\": 1395,\n    \"systemFees\": \"string\",\n    \"totalPnL\": \"string\",\n    \"tradingFees\": \"string\",\n    \"userId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5024496d-9b81-4037-aab3-0c430df3fe4e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76c4730f-8586-4d97-9c30-0a76e90f663f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22d957b7-a9ce-4c00-8b47-3ce6f9040902",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "219b349b-d5e7-48cb-a5ca-6c7d39f444b0",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "242ce221-7242-45b6-ba8f-d92bf865b797",
+          "name": "Retrieve user total account candles",
+          "request": {
+            "name": "Retrieve user total account candles",
+            "description": {
+              "content": "Returns historical values snapshots. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "account",
+                "candles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Candle interval"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<string>",
+                  "description": "Start time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<string>",
+                  "description": "End time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of candles (default=1000)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fcc5e29f-0b55-4d53-9626-5ba71a535ebb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candles\": [\n    {\n      \"closeRealizedPnL\": \"string\",\n      \"closeTime\": \"string\",\n      \"closeTotalPnL\": \"string\",\n      \"closeTotalValue\": \"string\",\n      \"closeUnrealizedPnL\": \"string\",\n      \"highRealizedPnL\": \"string\",\n      \"highTotalPnL\": \"string\",\n      \"highTotalValue\": \"string\",\n      \"highUnrealizedPnL\": \"string\",\n      \"interval\": \"string\",\n      \"liquidationFeesAtClose\": \"string\",\n      \"liquidationFeesAtOpen\": \"string\",\n      \"lowRealizedPnL\": \"string\",\n      \"lowTotalPnL\": \"string\",\n      \"lowTotalValue\": \"string\",\n      \"lowUnrealizedPnL\": \"string\",\n      \"openRealizedPnL\": \"string\",\n      \"openTime\": \"string\",\n      \"openTotalPnL\": \"string\",\n      \"openTotalValue\": \"string\",\n      \"openUnrealizedPnL\": \"string\",\n      \"seqId\": \"0\",\n      \"systemFeesAtClose\": \"string\",\n      \"systemFeesAtOpen\": \"string\",\n      \"tradingFeesAtClose\": \"string\",\n      \"tradingFeesAtOpen\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"closeRealizedPnL\": \"string\",\n      \"closeTime\": \"string\",\n      \"closeTotalPnL\": \"string\",\n      \"closeTotalValue\": \"string\",\n      \"closeUnrealizedPnL\": \"string\",\n      \"highRealizedPnL\": \"string\",\n      \"highTotalPnL\": \"string\",\n      \"highTotalValue\": \"string\",\n      \"highUnrealizedPnL\": \"string\",\n      \"interval\": \"string\",\n      \"liquidationFeesAtClose\": \"string\",\n      \"liquidationFeesAtOpen\": \"string\",\n      \"lowRealizedPnL\": \"string\",\n      \"lowTotalPnL\": \"string\",\n      \"lowTotalValue\": \"string\",\n      \"lowUnrealizedPnL\": \"string\",\n      \"openRealizedPnL\": \"string\",\n      \"openTime\": \"string\",\n      \"openTotalPnL\": \"string\",\n      \"openTotalValue\": \"string\",\n      \"openUnrealizedPnL\": \"string\",\n      \"seqId\": \"0\",\n      \"systemFeesAtClose\": \"string\",\n      \"systemFeesAtOpen\": \"string\",\n      \"tradingFeesAtClose\": \"string\",\n      \"tradingFeesAtOpen\": \"string\",\n      \"userId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be73fad1-3c2b-40da-8eb5-eafceb924c2e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91f27319-2513-41b7-afc8-cb594db26538",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fa8f37b-79c8-4ec3-9351-de5412c2b4d2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dd6e210-d666-43cd-8d2a-2f7504b4cbc2",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "account",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0de8bfbe-f6da-41c8-9d03-b58221c3777f",
+          "name": "Retrieve user balances",
+          "request": {
+            "name": "Retrieve user balances",
+            "description": {
+              "content": "Returns user balances across all margin accounts or for a specific margin account. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "marginAccount",
+                  "value": "<string>",
+                  "description": "Margin Account ID (optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50b49f7b-9b94-49d8-8b20-d80c141140a1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"marginAccountsBalances\": [\n    {\n      \"currency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"netBalance\": 5534.975289333399,\n      \"realizedPnl\": 6794.19481376842\n    },\n    {\n      \"currency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"netBalance\": 9732.345871033598,\n      \"realizedPnl\": 4410.256251440302\n    }\n  ],\n  \"seqId\": \"0\",\n  \"totalBalances\": [\n    {\n      \"currency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"netBalance\": 8180.6463229968385,\n      \"realizedPnl\": 9685.833697885366\n    },\n    {\n      \"currency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"netBalance\": 9032.484816144832,\n      \"realizedPnl\": 6711.955345757341\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f74f6aa2-d9e2-470e-bdee-1e13f1e72d5c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5218af77-f78c-4c44-852a-5c1c46445dce",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32088f6f-32d2-4f6a-819a-d7423fcda4ed",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "384af75f-58fc-496d-be55-0e12729306bd",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca2469d7-d6b6-4f87-977b-0c7ec5f0bc9d",
+          "name": "Retrieve user withdrawable balances",
+          "request": {
+            "name": "Retrieve user withdrawable balances",
+            "description": {
+              "content": "Returns user balances breakdown and other relevant information for withdrawl for a specific margin account. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "balances",
+                "withdrawable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "marginAccount",
+                  "value": "<string>",
+                  "description": "(Required) Margin Account ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d1265852-8e46-45d4-b7ad-ec3641e0b3d1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances",
+                    "withdrawable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextWithdrawSequenceId\": \"0\",\n  \"withdrawables\": [\n    {\n      \"currency\": \"string\",\n      \"fee\": 892.2179740376567,\n      \"lockedBalance\": 7322.025020172766,\n      \"marginAccount\": \"string\",\n      \"maxNetWithdrawAmount\": 2052.692797611646,\n      \"withdrawableBalance\": 3050.748744942936\n    },\n    {\n      \"currency\": \"string\",\n      \"fee\": 231.43223374059608,\n      \"lockedBalance\": 4540.30612120256,\n      \"marginAccount\": \"string\",\n      \"maxNetWithdrawAmount\": 5290.510089504992,\n      \"withdrawableBalance\": 8704.286996051354\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0d32437-cb0b-4b0d-9617-2fbeeaf35873",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances",
+                    "withdrawable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2854fde-4b4e-46cf-a24c-a68f2980d8fe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances",
+                    "withdrawable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddca8777-1ef5-429a-a8ba-38198dd5aaf4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances",
+                    "withdrawable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e75ed30-dfde-41ec-b5b4-c75c3b0bd2eb",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "balances",
+                    "withdrawable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ef689cf-23d4-4908-8bc6-5507c635611e",
+          "name": "Retrieve user's orders.",
+          "request": {
+            "name": "Retrieve user's orders.",
+            "description": {
+              "content": "Returns all orders across all margin accounts, or just those for a specified margin account. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "marginAccount",
+                  "value": "<string>",
+                  "description": "Margin Account ID (optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b3cdd2e-6d91-4a06-8b0e-78a5b1fa380e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orders\": [\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"auto-risk-reducing\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"sell\",\n      \"status\": \"cancelled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"avgExecutedPrice\": \"string\",\n      \"cancellationReason\": \"user-request\",\n      \"clientOrderId\": \"string\",\n      \"createdAt\": \"string\",\n      \"executedQuantity\": \"string\",\n      \"initialQuantity\": \"string\",\n      \"lastExecutedPrice\": \"string\",\n      \"lastExecutedQuantity\": \"string\",\n      \"leavesQuantity\": \"string\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"seqId\": \"0\",\n      \"side\": \"buy\",\n      \"status\": \"cancelled\",\n      \"symbol\": \"string\",\n      \"userId\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "259e8327-86c3-4cdd-835d-f8a19740467b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b234192-5090-45a2-bfe0-efaac3ae5c67",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56b351ef-f8a3-427d-b166-ef34b2b34bc2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01a1611b-b5e9-4fc5-acd8-3a9d5402ba7f",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dceea0aa-c895-4018-b4d2-5fd06a63a94f",
+          "name": "Retrieve user's open positions.",
+          "request": {
+            "name": "Retrieve user's open positions.",
+            "description": {
+              "content": "Returns open positions across all margin accounts, or the specified margin account. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "marginAccount",
+                  "value": "<string>",
+                  "description": "Margin Account ID (optional)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d6aa079-216d-41c2-9cb3-2cb7186f7518",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"positions\": [\n    {\n      \"avgPrice\": \"string\",\n      \"closedFixedTokens\": \"string\",\n      \"closedFloatTradeValue\": \"string\",\n      \"currentOpenPositionClosedFixedTokens\": \"string\",\n      \"currentOpenPositionClosedFloatTradeValue\": \"string\",\n      \"currentOpenPositionLiquidationFees\": \"string\",\n      \"currentOpenPositionRealizedPnL\": \"string\",\n      \"currentOpenPositionTradingFees\": \"string\",\n      \"dv01\": \"string\",\n      \"dv100\": \"string\",\n      \"isFinalized\": true,\n      \"isMatured\": true,\n      \"liquidationFees\": \"string\",\n      \"marginAccount\": \"string\",\n      \"notional\": \"string\",\n      \"realizedPnl\": \"string\",\n      \"riskDirection\": \"string\",\n      \"symbol\": \"string\",\n      \"totalFixedTokens\": \"string\",\n      \"totalFloatTokens\": \"string\",\n      \"totalFloatTradeValue\": \"string\",\n      \"totalPnl\": \"string\",\n      \"tradingFees\": \"string\"\n    },\n    {\n      \"avgPrice\": \"string\",\n      \"closedFixedTokens\": \"string\",\n      \"closedFloatTradeValue\": \"string\",\n      \"currentOpenPositionClosedFixedTokens\": \"string\",\n      \"currentOpenPositionClosedFloatTradeValue\": \"string\",\n      \"currentOpenPositionLiquidationFees\": \"string\",\n      \"currentOpenPositionRealizedPnL\": \"string\",\n      \"currentOpenPositionTradingFees\": \"string\",\n      \"dv01\": \"string\",\n      \"dv100\": \"string\",\n      \"isFinalized\": true,\n      \"isMatured\": true,\n      \"liquidationFees\": \"string\",\n      \"marginAccount\": \"string\",\n      \"notional\": \"string\",\n      \"realizedPnl\": \"string\",\n      \"riskDirection\": \"string\",\n      \"symbol\": \"string\",\n      \"totalFixedTokens\": \"string\",\n      \"totalFloatTokens\": \"string\",\n      \"totalFloatTradeValue\": \"string\",\n      \"totalPnl\": \"string\",\n      \"tradingFees\": \"string\"\n    }\n  ],\n  \"positionsMarginDetails\": [\n    {\n      \"initialMarginRequirement\": \"string\",\n      \"leverage\": \"string\",\n      \"liquidationRate\": \"string\",\n      \"maintenanceMarginRequirement\": \"string\",\n      \"marginAccount\": \"string\",\n      \"pendingLongVolume\": \"string\",\n      \"pendingShortVolume\": \"string\",\n      \"symbol\": \"string\"\n    },\n    {\n      \"initialMarginRequirement\": \"string\",\n      \"leverage\": \"string\",\n      \"liquidationRate\": \"string\",\n      \"maintenanceMarginRequirement\": \"string\",\n      \"marginAccount\": \"string\",\n      \"pendingLongVolume\": \"string\",\n      \"pendingShortVolume\": \"string\",\n      \"symbol\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "086f7907-d342-49bb-a0a4-98e2c73a927c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "758a152b-c938-4acb-ba79-e4212825e102",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ca63a0a-3289-487c-8e89-944c3a4a6e0f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "374b8ffd-acab-4a35-8d02-0e2c670c4809",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "marginAccount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c940d91e-ff9b-4d3f-870b-dc0c2380c91b",
+          "name": "Retrieve recent trades for a user",
+          "request": {
+            "name": "Retrieve recent trades for a user",
+            "description": {
+              "content": "Returns last N trades that belong to that user. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "trades"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of trades (default=100, max=1000)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f6e7218a-c1da-4334-acdd-34e2b34c63b2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trades\": [\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"maker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"buy\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    },\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"liquidationFees\": \"string\",\n      \"liquidityRole\": \"taker\",\n      \"marginAccount\": \"string\",\n      \"orderId\": \"0\",\n      \"price\": \"string\",\n      \"side\": \"buy\",\n      \"symbol\": \"string\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"tradingFees\": \"string\",\n      \"userId\": \"string\",\n      \"userTradeSeqId\": \"0\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cd8e7e6-fe8a-4f32-978c-4dee5829af98",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58076198-06f4-43cf-a419-13aa441ec47e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0d43a7a-6543-481f-8194-dc94e3d8a03a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b81f6703-2cf6-453f-b888-fef3963997b4",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2ce6ac8-76be-436b-839e-62a795752005",
+          "name": "Retrieve recent transfers for a user",
+          "request": {
+            "name": "Retrieve recent transfers for a user",
+            "description": {
+              "content": "Returns last N transfers for the user. Rate limit weight: 2",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of updates (default=100, max=1000)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c5139f35-5e5e-4cf4-9135-64a5509af05a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updates\": [\n    {\n      \"chainAddress\": \"string\",\n      \"chainId\": \"string\",\n      \"chainTxHash\": \"string\",\n      \"cmdSeqId\": \"0\",\n      \"currencyId\": \"string\",\n      \"custodianType\": \"string\",\n      \"deadline\": \"string\",\n      \"delta\": \"string\",\n      \"fee\": \"string\",\n      \"marginAccount\": \"string\",\n      \"newAccountFreeBalance\": \"string\",\n      \"newMarginAccountBalance\": \"string\",\n      \"time\": \"string\",\n      \"transferEntitySeqId\": \"0\",\n      \"transferExecSeqId\": \"0\",\n      \"transferStatus\": \"canceled\",\n      \"transferType\": \"allocation-to-margin-account\",\n      \"unwrapNativeToken\": true,\n      \"userCustodyAccountId\": \"string\",\n      \"userId\": \"string\"\n    },\n    {\n      \"chainAddress\": \"string\",\n      \"chainId\": \"string\",\n      \"chainTxHash\": \"string\",\n      \"cmdSeqId\": \"0\",\n      \"currencyId\": \"string\",\n      \"custodianType\": \"string\",\n      \"deadline\": \"string\",\n      \"delta\": \"string\",\n      \"fee\": \"string\",\n      \"marginAccount\": \"string\",\n      \"newAccountFreeBalance\": \"string\",\n      \"newMarginAccountBalance\": \"string\",\n      \"time\": \"string\",\n      \"transferEntitySeqId\": \"0\",\n      \"transferExecSeqId\": \"0\",\n      \"transferStatus\": \"canceled\",\n      \"transferType\": \"deposit\",\n      \"unwrapNativeToken\": false,\n      \"userCustodyAccountId\": \"string\",\n      \"userId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6760e6a0-8525-44c2-8005-a715494e3538",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52d69e3c-39e2-4566-b121-46c819b74773",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbe0b236-8a50-45d8-ba05-346678c31eef",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a4dec42-1710-432c-9bbc-2972e69e0b23",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79391b21-da34-4e27-8f1e-539b14930ee2",
+          "name": "Request withdrawal",
+          "request": {
+            "name": "Request withdrawal",
+            "description": {
+              "content": "Submits a withdrawal request. If marginAccount is specified, funds are deallocated before withdrawal. Rate limit weight: 1",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "withdrawals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"<string>\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3adbe34c-29b2-4fbc-89f9-495e0da378f8",
+              "name": "Withdrawal request accepted for processing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"0\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eec7f40-db5b-4115-93f2-a4b7cac28b55",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"0\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8429699d-f315-4040-99cc-d462c18a0248",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"0\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2780833f-80fc-4bfc-925d-3a3034d43c6f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"0\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b5d6617-75be-45a7-8643-dd7515883971",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<string>\",\n  \"chainId\": \"<string>\",\n  \"currencyId\": \"<string>\",\n  \"ownerSignature\": \"<string>\",\n  \"clientWithdrawalId\": \"<string>\",\n  \"deadline\": \"0\",\n  \"marginAccount\": \"<string>\",\n  \"unwrapNativeToken\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "97cc901f-85d9-469d-876f-a76b667c871f",
+    "name": "Rho Exchange Market Data User Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

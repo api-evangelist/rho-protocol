@@ -4,20 +4,29 @@ status: published
 source: https://docs.rho.trading/developer/rho-mcp-server.md
 server:
   name: rho-mcp
-  package: "@rholabs/rho-mcp"
+  package: '@rholabs/rho-mcp'
   transport: http
   install: npx -y @rholabs/rho-mcp@latest
   default_port: 8787
   api_endpoint: https://x.rho.trading/api/v1
   repository: https://github.com/RhoLabs/rho-mcp
-  hosts: [Claude Code, Claude Desktop, Cursor, Zed, Windsurf]
+  hosts:
+  - Claude Code
+  - Claude Desktop
+  - Cursor
+  - Zed
+  - Windsurf
 authentication:
   methods:
-  - {type: browser, note: Opens a browser window and stores tokens in the OS keychain (interactive use)}
-  - {type: api-key, note: 'Create a ReadOnly or FullAccess key in Rho X settings (bots/automation)'}
+  - type: browser
+    note: Opens a browser window and stores tokens in the OS keychain (interactive use)
+  - type: api-key
+    note: Create a ReadOnly or FullAccess key in Rho X settings (bots/automation)
 config_example:
   command: npx
-  args: ["-y", "@rholabs/rho-mcp@latest"]
+  args:
+  - -y
+  - '@rholabs/rho-mcp@latest'
 tool_count: 26
 tool_categories:
 - name: Gateway
@@ -28,3 +37,12 @@ tool_categories:
   desc: Balances, positions, fills, margin state
 - name: Trading
   desc: Place/cancel orders (requires FullAccess scope)
+deployment:
+  mode: none
+  endpoint: https://x.rho.trading/api/v1
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census

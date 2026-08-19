@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rho Exchange Market Data Stats API",
+    "version": "development"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve volume stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/stats/volume",
+            "params": [
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO8601 / RFC3339)"
+              }
+            ]
+          },
+          "docs": "Returns volume stats for a given timeframe"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

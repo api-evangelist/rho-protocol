@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rho Exchange Market Data API",
+    "version": "development"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve exchange info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/exchange/info",
+            "params": [
+              {
+                "name": "includeMaturedSymbols",
+                "value": "",
+                "type": "query",
+                "description": "Include matured symbols"
+              },
+              {
+                "name": "includeMarkets",
+                "value": "",
+                "type": "query",
+                "description": "Include markets list"
+              }
+            ]
+          },
+          "docs": "Returns list of all symbols, currencies, and relevant metadata."
+        },
+        {
+          "info": {
+            "name": "Retrieve floating rate candles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/markets/:marketId/floating-rate-candles",
+            "params": [
+              {
+                "name": "marketId",
+                "value": "",
+                "type": "path",
+                "description": "Market ID"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Candle interval"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of candles to retrieve (default=1000)"
+              }
+            ]
+          },
+          "docs": "Returns floating rate candles for a given market"
+        },
+        {
+          "info": {
+            "name": "Retrieve candle data for a symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/symbols/:symbol/candles",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Candle interval"
+              },
+              {
+                "name": "startTime",
+                "value": "",
+                "type": "query",
+                "description": "Start time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "endTime",
+                "value": "",
+                "type": "query",
+                "description": "End time (ISO8601 / RFC3339)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of candles to retrieve (default=1000)"
+              }
+            ]
+          },
+          "docs": "Returns OHLCV (candles) for a symbol over a timeframe"
+        },
+        {
+          "info": {
+            "name": "Retrieve order book for a symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/symbols/:symbol/order-book",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "Depth of order book"
+              }
+            ]
+          },
+          "docs": "Returns current order book bids and asks, up to a given depth"
+        },
+        {
+          "info": {
+            "name": "Retrieve recent trades for a symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/symbols/:symbol/trades",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of trades to retrieve (default 100, max 1000)"
+              }
+            ]
+          },
+          "docs": "Returns last N trades for a symbol"
+        },
+        {
+          "info": {
+            "name": "Retrieve multiple tickers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tickers",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "List of symbol strings"
+              }
+            ]
+          },
+          "docs": "Returns tickers for all symbols or a list of requested symbols."
+        },
+        {
+          "info": {
+            "name": "Retrieve ticker for a specific symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tickers/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Symbol to fetch ticker for"
+              }
+            ]
+          },
+          "docs": "Returns ticker data (high, low, last, open interest, etc.) for a single symbol"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

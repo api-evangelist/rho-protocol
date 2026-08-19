@@ -1,0 +1,1470 @@
+{
+  "item": [
+    {
+      "id": "46ab5f38-66ad-4416-a805-6bf3e88ef36b",
+      "name": "Market Data",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf24d268-484f-4129-a87e-5fff5513b6a2",
+          "name": "Retrieve exchange info",
+          "request": {
+            "name": "Retrieve exchange info",
+            "description": {
+              "content": "Returns list of all symbols, currencies, and relevant metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "exchange",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeMaturedSymbols",
+                  "value": "<boolean>",
+                  "description": "Include matured symbols"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMarkets",
+                  "value": "<boolean>",
+                  "description": "Include markets list"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66ba9550-5535-4240-b23a-d637f8534215",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exchange",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeMaturedSymbols",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMarkets",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activatedFeatures\": [\n    {\n      \"featureId\": 2493,\n      \"seqId\": \"0\"\n    },\n    {\n      \"featureId\": 3654,\n      \"seqId\": \"0\"\n    }\n  ],\n  \"currencies\": [\n    {\n      \"blockchainAddress\": \"string\",\n      \"blockchainId\": \"string\",\n      \"id\": \"string\",\n      \"scale\": \"0\"\n    },\n    {\n      \"blockchainAddress\": \"string\",\n      \"blockchainId\": \"string\",\n      \"id\": \"string\",\n      \"scale\": \"0\"\n    }\n  ],\n  \"currencyHaircuts\": [\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    },\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    }\n  ],\n  \"currencyRates\": [\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    },\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    }\n  ],\n  \"currencyRiskFactors\": [\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    },\n    {\n      \"sourceCurrencyToValues\": [\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        },\n        {\n          \"sourceCurrency\": \"string\",\n          \"value\": {\n            \"updatedAt\": \"string\",\n            \"value\": \"string\"\n          }\n        }\n      ],\n      \"targetCurrency\": \"string\"\n    }\n  ],\n  \"depositaries\": [\n    {\n      \"blockchainId\": \"string\",\n      \"depositaryId\": \"string\",\n      \"depositaryType\": \"blockchain\"\n    },\n    {\n      \"blockchainId\": \"string\",\n      \"depositaryId\": \"string\",\n      \"depositaryType\": \"blockchain\"\n    }\n  ],\n  \"marginAccounts\": [\n    {\n      \"baseCurrency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"supportedCurrencies\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"baseCurrency\": \"string\",\n      \"marginAccount\": \"string\",\n      \"supportedCurrencies\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"markets\": [\n    {\n      \"baseCurrency\": \"string\",\n      \"floatingRate\": \"string\",\n      \"floatingRateTimestamp\": \"string\",\n      \"id\": \"string\",\n      \"initialMarginThresholdDelta\": \"string\",\n      \"maintenanceMarginThresholdDelta\": \"string\",\n      \"makerFeeFactor\": \"string\",\n      \"marginAccount\": \"string\",\n      \"marginMarketHedgeFactor\": \"string\",\n      \"marginRequirementMinTimeFactor\": \"string\",\n      \"maturityLockUpWindow\": \"string\",\n      \"maxPriceImpactPerTrade\": \"string\",\n      \"maxTradeNotional\": \"string\",\n      \"minFeeTimeFloor\": \"string\",\n      \"minMakerFee\": \"string\",\n      \"minTakerFee\": \"string\",\n      \"minTradeNotional\": \"string\",\n      \"novationLiquidationFeesFactor\": \"string\",\n      \"orderPriceCollar\": \"string\",\n      \"priceTickSize\": \"string\",\n      \"productType\": \"string\",\n      \"rateMathType\": \"string\",\n      \"takerFeeFactor\": \"string\",\n      \"underlyingAsset\": \"string\",\n      \"unwindingLiquidationFeesFactor\": \"string\"\n    },\n    {\n      \"baseCurrency\": \"string\",\n      \"floatingRate\": \"string\",\n      \"floatingRateTimestamp\": \"string\",\n      \"id\": \"string\",\n      \"initialMarginThresholdDelta\": \"string\",\n      \"maintenanceMarginThresholdDelta\": \"string\",\n      \"makerFeeFactor\": \"string\",\n      \"marginAccount\": \"string\",\n      \"marginMarketHedgeFactor\": \"string\",\n      \"marginRequirementMinTimeFactor\": \"string\",\n      \"maturityLockUpWindow\": \"string\",\n      \"maxPriceImpactPerTrade\": \"string\",\n      \"maxTradeNotional\": \"string\",\n      \"minFeeTimeFloor\": \"string\",\n      \"minMakerFee\": \"string\",\n      \"minTakerFee\": \"string\",\n      \"minTradeNotional\": \"string\",\n      \"novationLiquidationFeesFactor\": \"string\",\n      \"orderPriceCollar\": \"string\",\n      \"priceTickSize\": \"string\",\n      \"productType\": \"string\",\n      \"rateMathType\": \"string\",\n      \"takerFeeFactor\": \"string\",\n      \"underlyingAsset\": \"string\",\n      \"unwindingLiquidationFeesFactor\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\",\n  \"symbols\": [\n    {\n      \"baseCurrency\": \"string\",\n      \"floatIndex\": \"string\",\n      \"floatIndexTimestamp\": \"string\",\n      \"floatingRate\": \"string\",\n      \"floatingRateTimestamp\": \"string\",\n      \"initialMarginThresholdDelta\": \"string\",\n      \"isExpired\": true,\n      \"isFinalized\": true,\n      \"isLockedUp\": false,\n      \"issueDate\": \"string\",\n      \"maintenanceMarginThresholdDelta\": \"string\",\n      \"makerFeeFactor\": \"string\",\n      \"marginAccount\": \"string\",\n      \"marginMarketHedgeFactor\": \"string\",\n      \"marginRequirementMinTimeFactor\": \"string\",\n      \"market\": \"string\",\n      \"maturityDate\": \"string\",\n      \"maturityLockUpWindow\": \"string\",\n      \"maxPriceImpactPerTrade\": \"string\",\n      \"maxTradeNotional\": \"string\",\n      \"minMakerFee\": \"string\",\n      \"minTakerFee\": \"string\",\n      \"minTradeNotional\": \"string\",\n      \"novationLiquidationFeesFactor\": \"string\",\n      \"openInterestLimit\": \"string\",\n      \"orderPriceCollar\": \"string\",\n      \"pausedLiquidations\": false,\n      \"pausedOrders\": true,\n      \"priceTickSize\": \"string\",\n      \"productType\": \"string\",\n      \"rateMathType\": \"string\",\n      \"settlementCurrency\": \"string\",\n      \"symbol\": \"string\",\n      \"takerFeeFactor\": \"string\",\n      \"underlyingAsset\": \"string\",\n      \"unwindingLiquidationFeesFactor\": \"string\"\n    },\n    {\n      \"baseCurrency\": \"string\",\n      \"floatIndex\": \"string\",\n      \"floatIndexTimestamp\": \"string\",\n      \"floatingRate\": \"string\",\n      \"floatingRateTimestamp\": \"string\",\n      \"initialMarginThresholdDelta\": \"string\",\n      \"isExpired\": false,\n      \"isFinalized\": true,\n      \"isLockedUp\": true,\n      \"issueDate\": \"string\",\n      \"maintenanceMarginThresholdDelta\": \"string\",\n      \"makerFeeFactor\": \"string\",\n      \"marginAccount\": \"string\",\n      \"marginMarketHedgeFactor\": \"string\",\n      \"marginRequirementMinTimeFactor\": \"string\",\n      \"market\": \"string\",\n      \"maturityDate\": \"string\",\n      \"maturityLockUpWindow\": \"string\",\n      \"maxPriceImpactPerTrade\": \"string\",\n      \"maxTradeNotional\": \"string\",\n      \"minMakerFee\": \"string\",\n      \"minTakerFee\": \"string\",\n      \"minTradeNotional\": \"string\",\n      \"novationLiquidationFeesFactor\": \"string\",\n      \"openInterestLimit\": \"string\",\n      \"orderPriceCollar\": \"string\",\n      \"pausedLiquidations\": false,\n      \"pausedOrders\": false,\n      \"priceTickSize\": \"string\",\n      \"productType\": \"string\",\n      \"rateMathType\": \"string\",\n      \"settlementCurrency\": \"string\",\n      \"symbol\": \"string\",\n      \"takerFeeFactor\": \"string\",\n      \"underlyingAsset\": \"string\",\n      \"unwindingLiquidationFeesFactor\": \"string\"\n    }\n  ],\n  \"withdrawalFees\": [\n    {\n      \"currencyId\": \"string\",\n      \"fee\": {\n        \"updatedAt\": \"string\",\n        \"value\": \"string\"\n      }\n    },\n    {\n      \"currencyId\": \"string\",\n      \"fee\": {\n        \"updatedAt\": \"string\",\n        \"value\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "add64575-101f-45ce-b075-b9f4b2f22376",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exchange",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeMaturedSymbols",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMarkets",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76fb01b7-6a59-41db-b161-3e56923acc6d",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "exchange",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeMaturedSymbols",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeMarkets",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39414a63-4175-4ebb-9740-0d56d5956170",
+          "name": "Retrieve floating rate candles",
+          "request": {
+            "name": "Retrieve floating rate candles",
+            "description": {
+              "content": "Returns floating rate candles for a given market",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "markets",
+                ":marketId",
+                "floating-rate-candles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Candle interval"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<string>",
+                  "description": "Start time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<string>",
+                  "description": "End time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of candles to retrieve (default=1000)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "marketId",
+                  "description": "(Required) Market ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f129c32b-8aa7-44b0-b9e1-30f9f17ff5b2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "markets",
+                    ":marketId",
+                    "floating-rate-candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marketId",
+                      "description": "(Required) Market ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candles\": [\n    {\n      \"closePrice\": \"string\",\n      \"closeTime\": \"string\",\n      \"highPrice\": \"string\",\n      \"interval\": \"string\",\n      \"lowPrice\": \"string\",\n      \"marketId\": \"string\",\n      \"openPrice\": \"string\",\n      \"openTime\": \"string\",\n      \"seqId\": \"0\"\n    },\n    {\n      \"closePrice\": \"string\",\n      \"closeTime\": \"string\",\n      \"highPrice\": \"string\",\n      \"interval\": \"string\",\n      \"lowPrice\": \"string\",\n      \"marketId\": \"string\",\n      \"openPrice\": \"string\",\n      \"openTime\": \"string\",\n      \"seqId\": \"0\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27d4326c-b257-4274-a663-fa2d1f5199e0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "markets",
+                    ":marketId",
+                    "floating-rate-candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marketId",
+                      "description": "(Required) Market ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3c84a8c-be6c-42b7-8c82-3cb1a63c4883",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "markets",
+                    ":marketId",
+                    "floating-rate-candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "marketId",
+                      "description": "(Required) Market ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53a51eab-f576-45a7-a362-5d1342de9f13",
+          "name": "Retrieve candle data for a symbol",
+          "request": {
+            "name": "Retrieve candle data for a symbol",
+            "description": {
+              "content": "Returns OHLCV (candles) for a symbol over a timeframe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbols",
+                ":symbol",
+                "candles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Candle interval"
+                },
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<string>",
+                  "description": "Start time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<string>",
+                  "description": "End time (ISO8601 / RFC3339)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of candles to retrieve (default=1000)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45f5ae9c-61fd-48b1-9563-7d97650f467c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candles\": [\n    {\n      \"accumulatedTradesCountAtOpen\": \"0\",\n      \"accumulatedVolumeAtClose\": \"string\",\n      \"accumulatedVolumeAtOpen\": \"string\",\n      \"closePrice\": \"string\",\n      \"closeTime\": \"string\",\n      \"highPrice\": \"string\",\n      \"interval\": \"string\",\n      \"lowPrice\": \"string\",\n      \"openInterestAtClose\": \"string\",\n      \"openInterestAtOpen\": \"string\",\n      \"openPrice\": \"string\",\n      \"openTime\": \"string\",\n      \"seqId\": \"0\",\n      \"symbol\": \"string\",\n      \"tradesCount\": \"0\",\n      \"volume\": \"string\"\n    },\n    {\n      \"accumulatedTradesCountAtOpen\": \"0\",\n      \"accumulatedVolumeAtClose\": \"string\",\n      \"accumulatedVolumeAtOpen\": \"string\",\n      \"closePrice\": \"string\",\n      \"closeTime\": \"string\",\n      \"highPrice\": \"string\",\n      \"interval\": \"string\",\n      \"lowPrice\": \"string\",\n      \"openInterestAtClose\": \"string\",\n      \"openInterestAtOpen\": \"string\",\n      \"openPrice\": \"string\",\n      \"openTime\": \"string\",\n      \"seqId\": \"0\",\n      \"symbol\": \"string\",\n      \"tradesCount\": \"0\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97b2a230-d2f2-4965-94f2-f7940b7ec68a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ef1dacd-7a6d-4def-8e1e-6cef6312a6e8",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "candles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80ca19cc-5aa1-4a2c-ae33-4e7443767413",
+          "name": "Retrieve order book for a symbol",
+          "request": {
+            "name": "Retrieve order book for a symbol",
+            "description": {
+              "content": "Returns current order book bids and asks, up to a given depth",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbols",
+                ":symbol",
+                "order-book"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "depth",
+                  "value": "<integer>",
+                  "description": "Depth of order book"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88560862-e334-4731-b37a-54b47950e353",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "order-book"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asks\": [\n    {\n      \"price\": \"string\",\n      \"quantity\": \"string\"\n    },\n    {\n      \"price\": \"string\",\n      \"quantity\": \"string\"\n    }\n  ],\n  \"bids\": [\n    {\n      \"price\": \"string\",\n      \"quantity\": \"string\"\n    },\n    {\n      \"price\": \"string\",\n      \"quantity\": \"string\"\n    }\n  ],\n  \"seqId\": \"0\",\n  \"symbol\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12a88e00-bf74-4f19-82b1-619f7a03f2e3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "order-book"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25df9c8e-1301-4d57-b24c-d0707583250a",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "order-book"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "depth",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eb24313-2ff7-476d-9d5a-3ee631678422",
+          "name": "Retrieve recent trades for a symbol",
+          "request": {
+            "name": "Retrieve recent trades for a symbol",
+            "description": {
+              "content": "Returns last N trades for a symbol",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbols",
+                ":symbol",
+                "trades"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of trades to retrieve (default 100, max 1000)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Symbol"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "405b182f-4d02-4769-a5eb-4b9b4228daad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trades\": [\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"openInterest\": \"string\",\n      \"prevAccumulatedVolume\": \"string\",\n      \"prevOpenInterest\": \"string\",\n      \"price\": \"string\",\n      \"side\": \"sell\",\n      \"symbol\": \"string\",\n      \"symbolTradeSeqId\": \"0\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"volume\": \"string\"\n    },\n    {\n      \"cmdSeqId\": \"0\",\n      \"floatIndex\": \"string\",\n      \"openInterest\": \"string\",\n      \"prevAccumulatedVolume\": \"string\",\n      \"prevOpenInterest\": \"string\",\n      \"price\": \"string\",\n      \"side\": \"sell\",\n      \"symbol\": \"string\",\n      \"symbolTradeSeqId\": \"0\",\n      \"time\": \"string\",\n      \"tradeType\": \"self-trade\",\n      \"volume\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59c808f9-62b4-4266-a306-bd91080ed1bb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f64de28b-49ca-4628-9b93-c0556b42e986",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbols",
+                    ":symbol",
+                    "trades"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b61438f6-c8fb-40d5-a685-941491b2c67a",
+          "name": "Retrieve multiple tickers",
+          "request": {
+            "name": "Retrieve multiple tickers",
+            "description": {
+              "content": "Returns tickers for all symbols or a list of requested symbols.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>,<string>",
+                  "description": "List of symbol strings"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b418e2c3-3ec8-462e-b9be-f508c84654cc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tickers\": [\n    {\n      \"askPrice\": \"string\",\n      \"askSize\": \"string\",\n      \"bidPrice\": \"string\",\n      \"bidSize\": \"string\",\n      \"highPrice\": \"string\",\n      \"lastAccumulatedTradesCount\": \"0\",\n      \"lastAccumulatedVolume\": \"string\",\n      \"lastOpenInterest\": \"string\",\n      \"lastPrice\": \"string\",\n      \"lowPrice\": \"string\",\n      \"markPrice\": \"string\",\n      \"openInterestChange\": \"string\",\n      \"priceChange\": \"string\",\n      \"seqId\": \"0\",\n      \"symbol\": \"string\",\n      \"tradesCountChange\": \"0\",\n      \"volumeChange\": \"string\"\n    },\n    {\n      \"askPrice\": \"string\",\n      \"askSize\": \"string\",\n      \"bidPrice\": \"string\",\n      \"bidSize\": \"string\",\n      \"highPrice\": \"string\",\n      \"lastAccumulatedTradesCount\": \"0\",\n      \"lastAccumulatedVolume\": \"string\",\n      \"lastOpenInterest\": \"string\",\n      \"lastPrice\": \"string\",\n      \"lowPrice\": \"string\",\n      \"markPrice\": \"string\",\n      \"openInterestChange\": \"string\",\n      \"priceChange\": \"string\",\n      \"seqId\": \"0\",\n      \"symbol\": \"string\",\n      \"tradesCountChange\": \"0\",\n      \"volumeChange\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4e57ddf-5c16-42c0-9e1f-55bc1022a208",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45ef305f-fef3-4986-9e42-1f41d078a541",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7de078c-1a8f-4d77-9cb1-f8015404473c",
+          "name": "Retrieve ticker for a specific symbol",
+          "request": {
+            "name": "Retrieve ticker for a specific symbol",
+            "description": {
+              "content": "Returns ticker data (high, low, last, open interest, etc.) for a single symbol",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tickers",
+                ":symbol"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "symbol",
+                  "description": "(Required) Symbol to fetch ticker for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7444881b-fe0e-4aed-8cc8-173f894d5d48",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers",
+                    ":symbol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol to fetch ticker for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": {\n    \"askPrice\": \"string\",\n    \"askSize\": \"string\",\n    \"bidPrice\": \"string\",\n    \"bidSize\": \"string\",\n    \"highPrice\": \"string\",\n    \"lastAccumulatedTradesCount\": \"0\",\n    \"lastAccumulatedVolume\": \"string\",\n    \"lastOpenInterest\": \"string\",\n    \"lastPrice\": \"string\",\n    \"lowPrice\": \"string\",\n    \"markPrice\": \"string\",\n    \"openInterestChange\": \"string\",\n    \"priceChange\": \"string\",\n    \"seqId\": \"0\",\n    \"symbol\": \"string\",\n    \"tradesCountChange\": \"0\",\n    \"volumeChange\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3798a658-26d1-45ca-bcc3-305ffbabb4f2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers",
+                    ":symbol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol to fetch ticker for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff7ffbca-302e-4990-a09e-5dac2a267eea",
+              "name": "Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tickers",
+                    ":symbol"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "symbol",
+                      "description": "(Required) Symbol to fetch ticker for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"requestId\": \"string\",\n  \"seqId\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "58cc60f1-705d-496d-bd5c-c1b56c810484",
+    "name": "Rho Exchange Market Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

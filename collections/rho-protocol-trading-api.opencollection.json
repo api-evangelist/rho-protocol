@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Rho Exchange Market Data Trading API",
+    "version": "development"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trading",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/orders"
+          },
+          "docs": "Submits a new order for the user, returning the processed result. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Cancel an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/orders/cancel"
+          },
+          "docs": "Cancels an existing order by orderId or clientOrderId. Rate limit weight: 1"
+        },
+        {
+          "info": {
+            "name": "Cancel all user orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/orders/cancel-all"
+          },
+          "docs": "Cancels all open orders for the current user. Optional filters by symbol, margin account, or side. Rate limit weight: 5"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
