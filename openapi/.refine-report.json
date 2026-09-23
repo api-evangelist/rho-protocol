@@ -1,10 +1,7 @@
 {
   "provider": "rho-protocol",
   "sources": [
-    "rho-protocol-market-data-api-openapi.yml",
-    "rho-protocol-stats-api-openapi.yml",
-    "rho-protocol-trading-api-openapi.yml",
-    "rho-protocol-user-data-api-openapi.yml"
+    "_original/rho-protocol-openapi-original.json"
   ],
   "outputs": [
     "rho-protocol-market-data-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rho-protocol-openapi-original.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "rho-protocol-openapi-original.json: declared missing tag: Market Data",
+    "rho-protocol-openapi-original.json: declared missing tag: Stats",
+    "rho-protocol-openapi-original.json: declared missing tag: Trading",
+    "rho-protocol-openapi-original.json: declared missing tag: User Data",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rho-protocol-market-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rho-protocol-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rho-protocol-trading-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rho-protocol-user-data-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
