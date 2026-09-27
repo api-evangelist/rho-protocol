@@ -122,20 +122,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    dto.OrdersProcessingResponse:
+    dto.RestCancelAllOrdersRequest:
       type: object
       properties:
-        orders:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.Order'
-        seqId:
+        marginAccount:
           type: string
-          example: '0'
-        trades:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.UserTrade'
+        side:
+          type: string
+          enum:
+          - buy
+          - sell
+        symbol:
+          type: string
     dto.Order:
       type: object
       properties:
@@ -187,16 +185,54 @@ components:
           type: string
         userId:
           type: string
-    dto.RestCancelAllOrdersRequest:
+    dto.RestCreateOrderRequest:
       type: object
+      required:
+      - orderType
+      - symbol
       properties:
-        marginAccount:
+        clientOrderId:
+          type: string
+          maxLength: 36
+        flags:
+          type: array
+          items:
+            type: string
+            enum:
+            - close-position
+        orderType:
+          type: string
+          enum:
+          - limit
+          - market
+        price:
+          type: string
+        quantity:
           type: string
         side:
           type: string
           enum:
           - buy
           - sell
+        symbol:
+          type: string
+        timeInForce:
+          type: string
+          enum:
+          - GTC
+          - IOC
+    dto.RestCancelOrderRequest:
+      type: object
+      required:
+      - symbol
+      properties:
+        clientOrderId:
+          type: string
+          maxLength: 36
+        orderId:
+          type: string
+          minimum: 1
+          example: '0'
         symbol:
           type: string
     dto.ExternalError:
@@ -216,6 +252,20 @@ components:
         seqId:
           type: string
           example: '0'
+    dto.OrdersProcessingResponse:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.Order'
+        seqId:
+          type: string
+          example: '0'
+        trades:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.UserTrade'
     dto.UserTrade:
       type: object
       properties:
@@ -262,56 +312,6 @@ components:
           example: '0'
         volume:
           type: string
-    dto.RestCancelOrderRequest:
-      type: object
-      required:
-      - symbol
-      properties:
-        clientOrderId:
-          type: string
-          maxLength: 36
-        orderId:
-          type: string
-          minimum: 1
-          example: '0'
-        symbol:
-          type: string
-    dto.RestCreateOrderRequest:
-      type: object
-      required:
-      - orderType
-      - symbol
-      properties:
-        clientOrderId:
-          type: string
-          maxLength: 36
-        flags:
-          type: array
-          items:
-            type: string
-            enum:
-            - close-position
-        orderType:
-          type: string
-          enum:
-          - limit
-          - market
-        price:
-          type: string
-        quantity:
-          type: string
-        side:
-          type: string
-          enum:
-          - buy
-          - sell
-        symbol:
-          type: string
-        timeInForce:
-          type: string
-          enum:
-          - GTC
-          - IOC
   securitySchemes:
     Bearer:
       type: apiKey
