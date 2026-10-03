@@ -324,112 +324,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    dto.SymbolTrade:
-      type: object
-      properties:
-        cmdSeqId:
-          type: string
-          example: '0'
-        floatIndex:
-          type: string
-        openInterest:
-          type: string
-        prevAccumulatedVolume:
-          type: string
-        prevOpenInterest:
-          type: string
-        price:
-          type: string
-        side:
-          type: string
-          enum:
-          - sell
-          - buy
-        symbol:
-          type: string
-        symbolTradeSeqId:
-          type: string
-          example: '0'
-        time:
-          type: string
-        tradeType:
-          type: string
-          enum:
-          - regular
-          - liquidation
-          - self-trade
-        volume:
-          type: string
-    dto.ExchangeInfoResponse:
-      type: object
-      properties:
-        activatedFeatures:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.FeatureInfo'
-        currencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyInfo'
-        currencyHaircuts:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
-        currencyRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
-        currencyRiskFactors:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
-        depositaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.DepositaryInfo'
-        marginAccounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.MarginAccountInfo'
-        markets:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.MarketInfo'
-        seqId:
-          type: string
-          example: '0'
-        symbols:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.SymbolInfo'
-        withdrawalFees:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyFeeInfo'
-    dto.FeatureInfo:
-      type: object
-      properties:
-        featureId:
-          type: integer
-        seqId:
-          type: string
-          example: '0'
-    dto.TickersResponse:
-      type: object
-      properties:
-        tickers:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.Ticker'
-    dto.CurrencyConversionInfo:
-      type: object
-      properties:
-        sourceCurrencyToValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyConversionEntry'
-        targetCurrency:
-          type: string
     dto.OrderBookEntry:
       type: object
       properties:
@@ -437,36 +331,13 @@ components:
           type: string
         quantity:
           type: string
-    dto.CurrencyInfo:
+    dto.CurrencyFeeInfo:
       type: object
       properties:
-        blockchainAddress:
+        currencyId:
           type: string
-        blockchainId:
-          type: string
-        id:
-          type: string
-        scale:
-          type: string
-          example: '0'
-    dto.SymbolCandlesResponse:
-      type: object
-      properties:
-        candles:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.Candle'
-    dto.MarginAccountInfo:
-      type: object
-      properties:
-        baseCurrency:
-          type: string
-        marginAccount:
-          type: string
-        supportedCurrencies:
-          type: array
-          items:
-            type: string
+        fee:
+          $ref: '#/components/schemas/dto.MutableDecimalInfo'
     dto.FloatingRateCandle:
       type: object
       properties:
@@ -489,58 +360,29 @@ components:
         seqId:
           type: string
           example: '0'
-    dto.Candle:
+    dto.DepositaryInfo:
       type: object
       properties:
-        accumulatedTradesCountAtOpen:
+        blockchainId:
           type: string
-          example: '0'
-        accumulatedVolumeAtClose:
+        depositaryId:
           type: string
-        accumulatedVolumeAtOpen:
+        depositaryType:
           type: string
-        closePrice:
-          type: string
-        closeTime:
-          type: string
-        highPrice:
-          type: string
-        interval:
-          type: string
-        lowPrice:
-          type: string
-        openInterestAtClose:
-          type: string
-        openInterestAtOpen:
-          type: string
-        openPrice:
-          type: string
-        openTime:
-          type: string
-        seqId:
-          type: string
-          example: '0'
-        symbol:
-          type: string
-        tradesCount:
-          type: string
-          example: '0'
-        volume:
-          type: string
-    dto.MutableDecimalInfo:
+          enum:
+          - blockchain
+    dto.CurrencyInfo:
       type: object
       properties:
-        updatedAt:
+        blockchainAddress:
           type: string
-        value:
+        blockchainId:
           type: string
-    dto.SymbolTradesResponse:
-      type: object
-      properties:
-        trades:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.SymbolTrade'
+        id:
+          type: string
+        scale:
+          type: string
+          example: '0'
     dto.SymbolInfo:
       type: object
       properties:
@@ -616,24 +458,151 @@ components:
           type: string
         unwindingLiquidationFeesFactor:
           type: string
-    dto.FloatingRateCandlesResponse:
+    dto.SymbolTrade:
       type: object
       properties:
-        candles:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.FloatingRateCandle'
-    dto.DepositaryInfo:
-      type: object
-      properties:
-        blockchainId:
+        cmdSeqId:
           type: string
-        depositaryId:
+          example: '0'
+        floatIndex:
           type: string
-        depositaryType:
+        openInterest:
+          type: string
+        prevAccumulatedVolume:
+          type: string
+        prevOpenInterest:
+          type: string
+        price:
+          type: string
+        side:
           type: string
           enum:
-          - blockchain
+          - sell
+          - buy
+        symbol:
+          type: string
+        symbolTradeSeqId:
+          type: string
+          example: '0'
+        time:
+          type: string
+        tradeType:
+          type: string
+          enum:
+          - regular
+          - liquidation
+          - self-trade
+        volume:
+          type: string
+    dto.CurrencyConversionInfo:
+      type: object
+      properties:
+        sourceCurrencyToValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyConversionEntry'
+        targetCurrency:
+          type: string
+    dto.MutableDecimalInfo:
+      type: object
+      properties:
+        updatedAt:
+          type: string
+        value:
+          type: string
+    dto.CurrencyConversionEntry:
+      type: object
+      properties:
+        sourceCurrency:
+          type: string
+        value:
+          $ref: '#/components/schemas/dto.MutableDecimalInfo'
+    dto.ExchangeInfoResponse:
+      type: object
+      properties:
+        activatedFeatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.FeatureInfo'
+        currencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyInfo'
+        currencyHaircuts:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
+        currencyRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
+        currencyRiskFactors:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyConversionInfo'
+        depositaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.DepositaryInfo'
+        marginAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.MarginAccountInfo'
+        markets:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.MarketInfo'
+        seqId:
+          type: string
+          example: '0'
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.SymbolInfo'
+        withdrawalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyFeeInfo'
+    dto.Ticker:
+      type: object
+      properties:
+        askPrice:
+          type: string
+        askSize:
+          type: string
+        bidPrice:
+          type: string
+        bidSize:
+          type: string
+        highPrice:
+          type: string
+        lastAccumulatedTradesCount:
+          type: string
+          example: '0'
+        lastAccumulatedVolume:
+          type: string
+        lastOpenInterest:
+          type: string
+        lastPrice:
+          type: string
+        lowPrice:
+          type: string
+        markPrice:
+          type: string
+        openInterestChange:
+          type: string
+        priceChange:
+          type: string
+        seqId:
+          type: string
+          example: '0'
+        symbol:
+          type: string
+        tradesCountChange:
+          type: string
+          example: '0'
+        volumeChange:
+          type: string
     dto.OrderBookResponse:
       type: object
       properties:
@@ -650,13 +619,63 @@ components:
           example: '0'
         symbol:
           type: string
-    dto.CurrencyFeeInfo:
+    dto.TickerResponse:
       type: object
       properties:
-        currencyId:
+        ticker:
+          $ref: '#/components/schemas/dto.Ticker'
+    dto.FloatingRateCandlesResponse:
+      type: object
+      properties:
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.FloatingRateCandle'
+    dto.SymbolTradesResponse:
+      type: object
+      properties:
+        trades:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.SymbolTrade'
+    dto.Candle:
+      type: object
+      properties:
+        accumulatedTradesCountAtOpen:
           type: string
-        fee:
-          $ref: '#/components/schemas/dto.MutableDecimalInfo'
+          example: '0'
+        accumulatedVolumeAtClose:
+          type: string
+        accumulatedVolumeAtOpen:
+          type: string
+        closePrice:
+          type: string
+        closeTime:
+          type: string
+        highPrice:
+          type: string
+        interval:
+          type: string
+        lowPrice:
+          type: string
+        openInterestAtClose:
+          type: string
+        openInterestAtOpen:
+          type: string
+        openPrice:
+          type: string
+        openTime:
+          type: string
+        seqId:
+          type: string
+          example: '0'
+        symbol:
+          type: string
+        tradesCount:
+          type: string
+          example: '0'
+        volume:
+          type: string
     dto.MarketInfo:
       type: object
       properties:
@@ -710,13 +729,17 @@ components:
           type: string
         unwindingLiquidationFeesFactor:
           type: string
-    dto.CurrencyConversionEntry:
+    dto.MarginAccountInfo:
       type: object
       properties:
-        sourceCurrency:
+        baseCurrency:
           type: string
-        value:
-          $ref: '#/components/schemas/dto.MutableDecimalInfo'
+        marginAccount:
+          type: string
+        supportedCurrencies:
+          type: array
+          items:
+            type: string
     dto.ExternalError:
       type: object
       properties:
@@ -734,51 +757,28 @@ components:
         seqId:
           type: string
           example: '0'
-    dto.TickerResponse:
+    dto.TickersResponse:
       type: object
       properties:
-        ticker:
-          $ref: '#/components/schemas/dto.Ticker'
-    dto.Ticker:
+        tickers:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.Ticker'
+    dto.SymbolCandlesResponse:
       type: object
       properties:
-        askPrice:
-          type: string
-        askSize:
-          type: string
-        bidPrice:
-          type: string
-        bidSize:
-          type: string
-        highPrice:
-          type: string
-        lastAccumulatedTradesCount:
-          type: string
-          example: '0'
-        lastAccumulatedVolume:
-          type: string
-        lastOpenInterest:
-          type: string
-        lastPrice:
-          type: string
-        lowPrice:
-          type: string
-        markPrice:
-          type: string
-        openInterestChange:
-          type: string
-        priceChange:
-          type: string
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.Candle'
+    dto.FeatureInfo:
+      type: object
+      properties:
+        featureId:
+          type: integer
         seqId:
           type: string
           example: '0'
-        symbol:
-          type: string
-        tradesCountChange:
-          type: string
-          example: '0'
-        volumeChange:
-          type: string
   securitySchemes:
     Bearer:
       type: apiKey

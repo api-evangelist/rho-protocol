@@ -617,163 +617,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    dto.UserMarginAccountCandle:
+    dto.UserTransfersResponse:
       type: object
       properties:
-        closeMargin:
-          type: string
-        closeRealizedPnL:
-          type: string
-        closeTime:
-          type: string
-        closeTotalPnL:
-          type: string
-        closeUnrealizedPnL:
-          type: string
-        highMargin:
-          type: string
-        highRealizedPnL:
-          type: string
-        highTotalPnL:
-          type: string
-        highUnrealizedPnL:
-          type: string
-        interval:
-          type: string
-        liquidationFeesAtClose:
-          type: string
-        liquidationFeesAtOpen:
-          type: string
-        lowMargin:
-          type: string
-        lowRealizedPnL:
-          type: string
-        lowTotalPnL:
-          type: string
-        lowUnrealizedPnL:
-          type: string
-        marginAccount:
-          type: string
-        openMargin:
-          type: string
-        openRealizedPnL:
-          type: string
-        openTime:
-          type: string
-        openTotalPnL:
-          type: string
-        openUnrealizedPnL:
-          type: string
-        seqId:
-          type: string
-          example: '0'
-        tradingFeesAtClose:
-          type: string
-        tradingFeesAtOpen:
-          type: string
-        userId:
-          type: string
-    dto.UserOrders:
-      type: object
-      properties:
-        orders:
+        updates:
           type: array
           items:
-            $ref: '#/components/schemas/dto.Order'
-        seqId:
-          type: string
-          example: '0'
-    dto.MarginAccountSummary:
-      type: object
-      properties:
-        currencyId:
-          type: string
-        id:
-          type: string
-        initialMarginRatio:
-          type: string
-        liquidationFees:
-          type: string
-        liquidationFeesInUsd:
-          type: string
-        maintenanceMarginRatio:
-          type: string
-        marginAccountValue:
-          type: string
-        marginAccountValueInUsd:
-          type: string
-        realizedPnl:
-          type: string
-        realizedPnlInUsd:
-          type: string
-        totalPnl:
-          type: string
-        totalPnlInUsd:
-          type: string
-        tradingFees:
-          type: string
-        tradingFeesInUsd:
-          type: string
-    dto.UserTrade:
-      type: object
-      properties:
-        cmdSeqId:
-          type: string
-          example: '0'
-        floatIndex:
-          type: string
-        liquidationFees:
-          type: string
-        liquidityRole:
-          type: string
-          enum:
-          - maker
-          - taker
-        marginAccount:
-          type: string
-        orderId:
-          type: string
-          example: '0'
-        price:
-          type: string
-        side:
-          type: string
-          enum:
-          - sell
-          - buy
-        symbol:
-          type: string
-        time:
-          type: string
-        tradeType:
-          type: string
-          enum:
-          - regular
-          - liquidation
-          - self-trade
-        tradingFees:
-          type: string
-        userId:
-          type: string
-        userTradeSeqId:
-          type: string
-          example: '0'
-        volume:
-          type: string
-    dto.UserPositions:
-      type: object
-      properties:
-        positions:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.Position'
-        positionsMarginDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.PositionMarginDetails'
-        seqId:
-          type: string
-          example: '0'
+            $ref: '#/components/schemas/dto.Transfer'
     dto.Transfer:
       type: object
       properties:
@@ -832,164 +682,6 @@ components:
           type: string
         userId:
           type: string
-    dto.Position:
-      type: object
-      properties:
-        avgPrice:
-          type: string
-        closedFixedTokens:
-          type: string
-        closedFloatTradeValue:
-          type: string
-        currentOpenPositionClosedFixedTokens:
-          type: string
-        currentOpenPositionClosedFloatTradeValue:
-          type: string
-        currentOpenPositionLiquidationFees:
-          type: string
-        currentOpenPositionRealizedPnL:
-          type: string
-        currentOpenPositionTradingFees:
-          type: string
-        dv01:
-          type: string
-        dv100:
-          type: string
-        isFinalized:
-          type: boolean
-        isMatured:
-          type: boolean
-        liquidationFees:
-          type: string
-        marginAccount:
-          type: string
-        notional:
-          type: string
-        realizedPnl:
-          type: string
-        riskDirection:
-          type: string
-        symbol:
-          type: string
-        totalFixedTokens:
-          type: string
-        totalFloatTokens:
-          type: string
-        totalFloatTradeValue:
-          type: string
-        totalPnl:
-          type: string
-        tradingFees:
-          type: string
-    dto.UserWithdrawableBalances:
-      type: object
-      properties:
-        nextWithdrawSequenceId:
-          type: string
-          example: '0'
-        withdrawables:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.WithdrawableBalance'
-    dto.UserMarginAccountCandlesResponse:
-      type: object
-      properties:
-        candles:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.UserMarginAccountCandle'
-    dto.PositionMarginDetails:
-      type: object
-      properties:
-        initialMarginRequirement:
-          type: string
-        leverage:
-          type: string
-        liquidationRate:
-          type: string
-        maintenanceMarginRequirement:
-          type: string
-        marginAccount:
-          type: string
-        pendingLongVolume:
-          type: string
-        pendingShortVolume:
-          type: string
-        symbol:
-          type: string
-    dto.UserBalances:
-      type: object
-      properties:
-        marginAccountsBalances:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyBalance'
-        seqId:
-          type: string
-          example: '0'
-        totalBalances:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.CurrencyBalance'
-    dto.UserTradesResponse:
-      type: object
-      properties:
-        trades:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.UserTrade'
-    dto.CurrencyBalance:
-      type: object
-      properties:
-        currency:
-          type: string
-        marginAccount:
-          type: string
-        netBalance:
-          type: number
-        realizedPnl:
-          type: number
-    dto.UserTotalAccountSummary:
-      type: object
-      properties:
-        accountValue:
-          type: string
-        baseCurrency:
-          type: string
-        freeBalance:
-          type: string
-        liquidationFees:
-          type: string
-        marginAccounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.MarginAccountSummary'
-        realizedPnl:
-          type: string
-        seqId:
-          type: integer
-        systemFees:
-          type: string
-        totalPnL:
-          type: string
-        tradingFees:
-          type: string
-        userId:
-          type: string
-    dto.MarginAccountsResponse:
-      type: object
-      properties:
-        userMarginAccounts:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.MarginAccount'
-    dto.UserAccountCandlesResponse:
-      type: object
-      properties:
-        candles:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.UserAccountCandle'
     dto.UserAccountCandle:
       type: object
       properties:
@@ -1048,58 +740,6 @@ components:
           type: string
         userId:
           type: string
-    dto.MarginAccount:
-      type: object
-      properties:
-        baseCurrency:
-          type: string
-        dv01:
-          type: string
-        dv100:
-          type: string
-        initialMarginRequirement:
-          type: string
-        leverage:
-          type: string
-        liquidationFees:
-          type: string
-        maintenanceMarginRequirement:
-          type: string
-        marginAccount:
-          type: string
-        realizedPnl:
-          type: string
-        riskDirection:
-          type: string
-        seqId:
-          type: string
-          example: '0'
-        supportedCurrencies:
-          type: array
-          items:
-            type: string
-        totalMargin:
-          type: string
-        totalPnl:
-          type: string
-        tradingFees:
-          type: string
-        userId:
-          type: string
-        withdrawableBalance:
-          type: string
-    dto.UserTransfersResponse:
-      type: object
-      properties:
-        updates:
-          type: array
-          items:
-            $ref: '#/components/schemas/dto.Transfer'
-    dto.UserTotalAccountResponse:
-      type: object
-      properties:
-        account:
-          $ref: '#/components/schemas/dto.UserTotalAccountSummary'
     dto.WithdrawableBalance:
       type: object
       properties:
@@ -1115,6 +755,57 @@ components:
           type: number
         withdrawableBalance:
           type: number
+    dto.UserTotalAccountSummary:
+      type: object
+      properties:
+        accountValue:
+          type: string
+        baseCurrency:
+          type: string
+        freeBalance:
+          type: string
+        liquidationFees:
+          type: string
+        marginAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.MarginAccountSummary'
+        realizedPnl:
+          type: string
+        seqId:
+          type: integer
+        systemFees:
+          type: string
+        totalPnL:
+          type: string
+        tradingFees:
+          type: string
+        userId:
+          type: string
+    dto.UserPositions:
+      type: object
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.Position'
+        positionsMarginDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.PositionMarginDetails'
+        seqId:
+          type: string
+          example: '0'
+    dto.UserWithdrawableBalances:
+      type: object
+      properties:
+        nextWithdrawSequenceId:
+          type: string
+          example: '0'
+        withdrawables:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.WithdrawableBalance'
     dto.Order:
       type: object
       properties:
@@ -1166,23 +857,164 @@ components:
           type: string
         userId:
           type: string
-    dto.ExternalError:
+    dto.MarginAccountsResponse:
       type: object
       properties:
-        code:
+        userMarginAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.MarginAccount'
+    dto.UserOrders:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.Order'
+        seqId:
           type: string
-        message:
+          example: '0'
+    dto.UserAccountCandlesResponse:
+      type: object
+      properties:
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.UserAccountCandle'
+    dto.MarginAccount:
+      type: object
+      properties:
+        baseCurrency:
           type: string
-        params:
-          description: Params carries stable flat string metadata for selected V2 AppErrors only.
-          type: object
-          additionalProperties:
-            type: string
-        requestId:
+        dv01:
+          type: string
+        dv100:
+          type: string
+        initialMarginRequirement:
+          type: string
+        leverage:
+          type: string
+        liquidationFees:
+          type: string
+        maintenanceMarginRequirement:
+          type: string
+        marginAccount:
+          type: string
+        realizedPnl:
+          type: string
+        riskDirection:
           type: string
         seqId:
           type: string
           example: '0'
+        supportedCurrencies:
+          type: array
+          items:
+            type: string
+        totalMargin:
+          type: string
+        totalPnl:
+          type: string
+        tradingFees:
+          type: string
+        userId:
+          type: string
+        withdrawableBalance:
+          type: string
+    dto.Position:
+      type: object
+      properties:
+        avgPrice:
+          type: string
+        closedFixedTokens:
+          type: string
+        closedFloatTradeValue:
+          type: string
+        currentOpenPositionClosedFixedTokens:
+          type: string
+        currentOpenPositionClosedFloatTradeValue:
+          type: string
+        currentOpenPositionLiquidationFees:
+          type: string
+        currentOpenPositionRealizedPnL:
+          type: string
+        currentOpenPositionTradingFees:
+          type: string
+        dv01:
+          type: string
+        dv100:
+          type: string
+        isFinalized:
+          type: boolean
+        isMatured:
+          type: boolean
+        liquidationFees:
+          type: string
+        marginAccount:
+          type: string
+        notional:
+          type: string
+        realizedPnl:
+          type: string
+        riskDirection:
+          type: string
+        symbol:
+          type: string
+        totalFixedTokens:
+          type: string
+        totalFloatTokens:
+          type: string
+        totalFloatTradeValue:
+          type: string
+        totalPnl:
+          type: string
+        tradingFees:
+          type: string
+    dto.MarginAccountSummary:
+      type: object
+      properties:
+        currencyId:
+          type: string
+        id:
+          type: string
+        initialMarginRatio:
+          type: string
+        liquidationFees:
+          type: string
+        liquidationFeesInUsd:
+          type: string
+        maintenanceMarginRatio:
+          type: string
+        marginAccountValue:
+          type: string
+        marginAccountValueInUsd:
+          type: string
+        realizedPnl:
+          type: string
+        realizedPnlInUsd:
+          type: string
+        totalPnl:
+          type: string
+        totalPnlInUsd:
+          type: string
+        tradingFees:
+          type: string
+        tradingFeesInUsd:
+          type: string
+    dto.UserBalances:
+      type: object
+      properties:
+        marginAccountsBalances:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyBalance'
+        seqId:
+          type: string
+          example: '0'
+        totalBalances:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.CurrencyBalance'
     dto.RestWithdrawalRequest:
       type: object
       required:
@@ -1213,6 +1045,174 @@ components:
           type: string
         unwrapNativeToken:
           type: boolean
+    dto.UserTotalAccountResponse:
+      type: object
+      properties:
+        account:
+          $ref: '#/components/schemas/dto.UserTotalAccountSummary'
+    dto.CurrencyBalance:
+      type: object
+      properties:
+        currency:
+          type: string
+        marginAccount:
+          type: string
+        netBalance:
+          type: number
+        realizedPnl:
+          type: number
+    dto.UserTrade:
+      type: object
+      properties:
+        cmdSeqId:
+          type: string
+          example: '0'
+        floatIndex:
+          type: string
+        liquidationFees:
+          type: string
+        liquidityRole:
+          type: string
+          enum:
+          - maker
+          - taker
+        marginAccount:
+          type: string
+        orderId:
+          type: string
+          example: '0'
+        price:
+          type: string
+        side:
+          type: string
+          enum:
+          - sell
+          - buy
+        symbol:
+          type: string
+        time:
+          type: string
+        tradeType:
+          type: string
+          enum:
+          - regular
+          - liquidation
+          - self-trade
+        tradingFees:
+          type: string
+        userId:
+          type: string
+        userTradeSeqId:
+          type: string
+          example: '0'
+        volume:
+          type: string
+    dto.PositionMarginDetails:
+      type: object
+      properties:
+        initialMarginRequirement:
+          type: string
+        leverage:
+          type: string
+        liquidationRate:
+          type: string
+        maintenanceMarginRequirement:
+          type: string
+        marginAccount:
+          type: string
+        pendingLongVolume:
+          type: string
+        pendingShortVolume:
+          type: string
+        symbol:
+          type: string
+    dto.UserMarginAccountCandlesResponse:
+      type: object
+      properties:
+        candles:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.UserMarginAccountCandle'
+    dto.UserMarginAccountCandle:
+      type: object
+      properties:
+        closeMargin:
+          type: string
+        closeRealizedPnL:
+          type: string
+        closeTime:
+          type: string
+        closeTotalPnL:
+          type: string
+        closeUnrealizedPnL:
+          type: string
+        highMargin:
+          type: string
+        highRealizedPnL:
+          type: string
+        highTotalPnL:
+          type: string
+        highUnrealizedPnL:
+          type: string
+        interval:
+          type: string
+        liquidationFeesAtClose:
+          type: string
+        liquidationFeesAtOpen:
+          type: string
+        lowMargin:
+          type: string
+        lowRealizedPnL:
+          type: string
+        lowTotalPnL:
+          type: string
+        lowUnrealizedPnL:
+          type: string
+        marginAccount:
+          type: string
+        openMargin:
+          type: string
+        openRealizedPnL:
+          type: string
+        openTime:
+          type: string
+        openTotalPnL:
+          type: string
+        openUnrealizedPnL:
+          type: string
+        seqId:
+          type: string
+          example: '0'
+        tradingFeesAtClose:
+          type: string
+        tradingFeesAtOpen:
+          type: string
+        userId:
+          type: string
+    dto.UserTradesResponse:
+      type: object
+      properties:
+        trades:
+          type: array
+          items:
+            $ref: '#/components/schemas/dto.UserTrade'
+    dto.ExternalError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        params:
+          description: Params carries stable flat string metadata for selected V2 AppErrors only.
+          type: object
+          additionalProperties:
+            type: string
+        requestId:
+          type: string
+        seqId:
+          type: string
+          example: '0'
   securitySchemes:
     Bearer:
       type: apiKey
