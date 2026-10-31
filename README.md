@@ -64,6 +64,151 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Rho Protocol is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Rho Protocol (Rho Labs) operates Rho X, a decentralized multi-asset trading and settlement layer for on-chain capital markets — interest-rate futures, perpetuals, and tokenized real-world assets tradable from a single cross-margined account. It offers off-exchange collateral custody (BitGo OES or self-custody), zero-gas settlement, and a private cross-chain RFQ swap service (Rho Relay) bridging Ethereum and Canton Network assets. Rho X exposes a REST API, a WebSocket streaming API, an npm SDK, and an official Model Context Protocol (MCP) server for programmatic trading, market data, and account management. Backed by Speedinvest.
 
-Backed by: speedinvest
+**Areas:** Company · Trading · DeFi · Derivatives · Capital Markets · Blockchain · Market Data · WebSocket · MCP · Real-Time
+
+## Rho Protocol on APIs.io
+
+Everything profiled for Rho Protocol is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/rho-protocol/](https://apis.io/providers/rho-protocol/)** — or go straight to one of the APIs or properties below.
+
+### APIs (4)
+
+- [Rho Protocol Market Data API](https://apis.io/apis/rho-protocol/rho-protocol-market-data-api/) — The Market Data API from Rho Protocol — 7 operation(s) for market data.
+- [Rho Protocol Stats API](https://apis.io/apis/rho-protocol/rho-protocol-stats-api/) — The Stats API from Rho Protocol — 1 operation(s) for stats.
+- [Rho Protocol Trading API](https://apis.io/apis/rho-protocol/rho-protocol-trading-api/) — The Trading API from Rho Protocol — 3 operation(s) for trading.
+- [Rho Protocol User Data API](https://apis.io/apis/rho-protocol/rho-protocol-user-data-api/) — The User Data API from Rho Protocol — 12 operation(s) for user data.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Rho X WebSocket API](https://apis.io/asyncapis/rho-protocol/rho-protocol-ws-asyncapi/)
+
+#### Event channels (14)
+
+Individual events and webhooks the provider emits.
+
+- [market-floating-rate-candles.{marketId}](https://apis.io/channels/rho-protocol/market-floating-rate-candles-marketid/)
+- [order-book.{symbol}](https://apis.io/channels/rho-protocol/order-book-symbol/)
+- [symbol-candles.{symbol}](https://apis.io/channels/rho-protocol/symbol-candles-symbol/)
+- [symbol-trades.{symbol}](https://apis.io/channels/rho-protocol/symbol-trades-symbol/)
+- [ticker.{symbol}](https://apis.io/channels/rho-protocol/ticker-symbol/)
+- [user-account](https://apis.io/channels/rho-protocol/user-account/)
+- [user-account-candles](https://apis.io/channels/rho-protocol/user-account-candles/)
+- [user-balances](https://apis.io/channels/rho-protocol/user-balances/)
+- [user-margin-account](https://apis.io/channels/rho-protocol/user-margin-account/)
+- [user-margin-account-candles](https://apis.io/channels/rho-protocol/user-margin-account-candles/)
+- [user-orders](https://apis.io/channels/rho-protocol/user-orders/)
+- [user-positions](https://apis.io/channels/rho-protocol/user-positions/)
+- [user-trades](https://apis.io/channels/rho-protocol/user-trades/)
+- [user-transfers](https://apis.io/channels/rho-protocol/user-transfers/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [rho-mcp](https://apis.io/servers/rho-protocol/rho-mcp/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Rho Protocol Agentic Access](https://apis.io/agentic-access/rho-protocol/rho-protocol-agentic-access/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Rho Exchange Market Data API](https://apis.io/collections/rho-protocol/open-rho-protocol-market-data-api/)
+- [Rho Exchange Market Data Stats API](https://apis.io/collections/rho-protocol/open-rho-protocol-stats-api/)
+- [Rho Exchange Market Data Trading API](https://apis.io/collections/rho-protocol/open-rho-protocol-trading-api/)
+- [Rho Exchange Market Data User Data API](https://apis.io/collections/rho-protocol/open-rho-protocol-user-data-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Rho Protocol Openapi Overlay](https://apis.io/overlays/rho-protocol/rho-protocol-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Rho Protocol Authentication](https://apis.io/security/rho-protocol/rho-protocol-authentication/)
+- [Rho Protocol Domain Security](https://apis.io/security/rho-protocol/rho-protocol-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rho Protocol Rate Limits](https://apis.io/rate-limits/rho-protocol/rho-protocol-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://x.rho.trading/)
+- [Documentation](https://docs.rho.trading/)
+- [Getting started](https://docs.rho.trading/getting-started/quick-start-first-trade.md)
+- [API reference](https://docs.rho.trading/api-reference/rest-api-reference.md)
+- [Support](https://docs.rho.trading/faq-and-support/contact-support.md)
+- [Blog](https://docs.rho.trading/)
+- [GitHub](https://github.com/RhoLabs)
+
+## API Evangelist rating
+
+**Kin Score 37.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.8 |
+| Contract governance | 4.5 |
+| Operational transparency | 39.5 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 29.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/rho-protocol/](https://apis.io/providers/rho-protocol/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Rho Protocol: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/rho-protocol/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
